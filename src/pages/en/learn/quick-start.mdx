@@ -1,0 +1,73 @@
+---
+title: Quick Start
+layout: ../../../layouts/MainLayout.astro
+---
+
+# Quick Start
+
+## What is discord.cf?
+
+discord.cf is a framework to build your own Discord bots on top Cloudflare Workers.
+
+## Start your first bot
+
+The first thing you need to do is to start your project. For that we've set up a [template repository](https://github.com/discordcf/starter-bot-template) in Github
+with all the boilerplate.
+
+If you use Github, you can [create a repository from this template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) through the UI.
+Or you can clone the repository to your local machine.
+
+```bash
+git clone https://github.com/discordcf/starter-bot-template.git my-bot
+```
+
+### Use the starter bot
+
+There are a couple steps you need to fulfill before actually testing your bot:
+
+- Create a Discord account.
+- Create a Cloudflare account.
+- Download `@cloudflare/wrangler2`.
+
+#### Set up your Discord account
+
+If you haven't registered to Discord, please do it [here](https://discord.com/register/).
+
+```typescript
+import { createApplicationCommandHandler, Permissions, type ApplicationCommandHandler } from "cloudflare-discord-bot";
+import { hug } from "./hug";
+
+export type EnvInterface = {
+  // Secrets
+  applicationId: string;
+  botToken: string;
+  publicKey: string;
+};
+
+let handler: ApplicationCommandHandler;
+export default {
+  fetch: (req: Request, env: EnvInterface, context: ExecutionContext) => {
+    if (handler === undefined) {
+      handler = createApplicationCommandHandler({
+        applicationId: env.applicationId,
+        botToken: env.botToken,
+        publicKey: env.publicKey,
+        // Optional guildId for development
+        // guildId: "",
+        commands: [hug],
+        permissions: new Permissions([]),
+      });
+    }
+    return handler(req, env, context);
+  },
+};
+```
+
+
+> A Markdown/MDX layout will have access to all its file’s exported properties from Astro.props with some key differences:
+> - Heading information (i.e. `h1 -> h6` elements) is available via the headings array, rather than a getHeadings() function.
+> - `file` and url are also available as nested frontmatter properties (i.e. frontmatter.url and frontmatter.file).
+> - Values defined outside of frontmatter (e.g. export statements in MDX) are not available. Consider [importing a layout instead](https://docs.astro.build/en/core-concepts/layouts/#importing-layouts-manually-mdx).
+
+
+`hello world`

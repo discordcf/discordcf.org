@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Sidebar from "../components/Sidebar.astro";
+---
+
+<Layout title="Welcome | discord.cf">
+  <Header />
+  <div class="flex h-full">
+    <Sidebar />
+    <main
+      class="flex flex-col m-auto py-6 pr-48 pl-6 mt-[var(--theme-header-height)] [margin-inline-start:var(--theme-sidebar-width)]"
+    >
+      <article class="prose dark:prose-invert mx-2 px-4">
+        <slot />
+      </article>
+    </main>
+  </div>
+</Layout>

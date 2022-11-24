@@ -1,0 +1,58 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+
+console.log(currentPath);
+---
+
+<aside
+  class="flex flex-col fixed top-24 left-0 p-4 mb-6 mt-2 gap-4 w-[var(--theme-sidebar-width)] border-r-[0.25px] border-b-slate-400"
+>
+  <nav class="flex justify-center text-md mb-2 pb-2 mx-auto border-b-[0.1px] px-2">
+    <a href="/learn/hello-world">Home</a>
+    <a href="/learn/quick-start" class="px-6">Learn</a>
+    <a href="/reference">Reference</a>
+  </nav>
+  <nav class="overflow-y-scroll">
+    <ul>
+      <li class="mb-2">
+        <a href="/learn/installation">Installation</a>
+      </li>
+      <li>Quick Start</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+      <li>Get Started</li>
+    </ul>
+  </nav>
+</aside>

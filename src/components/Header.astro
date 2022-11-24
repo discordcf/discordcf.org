@@ -1,0 +1,23 @@
+---
+import { Image } from "@astrojs/image/components";
+import LanguageSelector from "./LanguageSelector.astro";
+import ThemeToggleButton from "./ThemeToggleButton";
+---
+
+<header
+  class="flex fixed top-0 items-center h-[var(--theme-header-height)] justify-center dark:bg-[#404454] bg-[#eee7f4] p-4 m-0 w-full gap-3"
+>
+  <div class="flex items-center gap-2">
+    <Image
+      src={import("/public/logo.png")}
+      alt="logo"
+      width={32}
+      aspectRatio={"1:1"}
+    />
+    <h1 class="text-3xl">
+      <span class="font-bakbak text-white">DISCORD.CF</span>
+    </h1>
+  </div>
+  <ThemeToggleButton client:load />
+  <LanguageSelector />
+</header>
