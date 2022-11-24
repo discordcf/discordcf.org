@@ -1,0 +1,23 @@
+name: Deploy environments
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN }}
+          accountId: 590d5e6a4382a813b506fa45ca1609e0
+          projectName: discordcf-org
+          directory: ./
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

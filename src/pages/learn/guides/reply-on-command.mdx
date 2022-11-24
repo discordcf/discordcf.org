@@ -1,0 +1,61 @@
+---
+title: Reply on command
+layout: ../../../layouts/MainLayout.astro
+---
+
+Replying on a command is part of the foundations to build bots in general.
+When a user in your Discord server executes a slash command for a given bot, Discord will send a request
+to the interaction endpoint you've configured in your Discord application.
+
+## Quick Intro
+
+There are quite a few types of interactions that we're interested in.
+Check them out in the [official Discord docuementation](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-type).
+
+For this guide, we'll look at the `APPLICATION_COMMAND` interaction.
+In general, the [interaction object structure](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object) you receive is similar among the various interaction type. However, the interaction data will change; which is the field we need for this
+guide.
+
+> Keep into consideration that the way the Discord bot, in this guide, works
+> is based on Discord webhooks; the only way we're supporting for now.
+> For more info on how bots can receieve events, check out this [link](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object).
+
+One important thing before we dive into the code is that, since Cloudflare Workers is a serverless stack, when Discord initiates a short-lived connection, ideally you should quickly respond to the request, and you can no longer process anything after you've sent the response.
+However, there are a few alternatives to execute heavier tasks, e.g., [deferring tasks](/learn/guides/defer-messages).
+
+## Code
+
+Let's look at some snippet.
+
+```typescript
+import { Command, InteractionResponseType, Context, APIInteractionResponse } from "@discordcf/framework";
+
+export const helloCommand: Command = {
+  command: {
+    name: "hello",
+    description: "A simple hello message",
+  },
+  handler: async (ctx: Context): Promise<APIInteractionResponse> => {
+    const userId = ctx.interaction.structure.member?.user.id;
+    return {
+      type: InteractionResponseType.ChannelMessageWithSource,
+      data: {
+        content: `Hello, <@${userId}>`,
+        allowed_mentions: {
+          users: [userId || ""],
+        },
+      },
+    };
+  },
+};
+
+export default helloCommand;
+```
+
+A command is a simple object of type `Command`.
+The `command` key is an object that, in this example, has the name of the command as well as some description.
+Additionally, you must define a command handler that must comply with that signature.
+
+[`Context`](/reference/Context) is essentially the interface you will be working with you to perform various actions against the Discord API.
+Also, `APIInteractionResponse` is the default response you need to send back to Discord. Whenever you return this response, the connection will be terminated, and you won't be able to perform any other task. So, in other words, the `return` statement is the termination mark.
+Pay attention to the type of the response, there a couple more types that we'll look at in other guides.

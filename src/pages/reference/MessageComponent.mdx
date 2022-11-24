@@ -1,0 +1,55 @@
+---
+title: MessageComponent
+layout: ../../layouts/MainLayout.astro
+---
+
+`MessageComponent` is an interface that will allow you to properly define your message components.
+
+```typescript
+interface MessageComponent {
+  component: MessageComponentWithCustomId;
+  handler: InteractionHandler;
+}
+```
+
+## Usage
+
+When you define a component, your component should be an object of type `MessageComponent` with both the component
+definition, and how to handle the interaction with it.
+
+```typescript
+import { APIInteractionResponse, Context, InteractionResponseType, MessageComponent } from "@discordcf/framework";
+
+const clickMePrimaryComponent: MessageComponent = {
+  component: {
+    type: 2,
+    label: "Primary",
+    style: 1,
+    custom_id: "primary",
+  },
+  handler: async (ctx: Context): Promise<APIInteractionResponse> => {
+    ctx.defer(async (ctx: Context): Promise<void> => {
+      await ctx.followup.reply({ content: "And this is a deferred hello!" });
+    });
+    return {
+      type: InteractionResponseType.ChannelMessageWithSource,
+      data: {
+        content: "Hello from component handler.",
+      },
+    };
+  },
+};
+
+export default clickMePrimaryComponent;
+```
+
+## Reference
+
+<div class="m-0 flex justify-start">
+  <span class="rounded-md bg-slate-300 py-2 px-4 font-source-code-pro dark:bg-[#ffffff16]">MessageComponent</span>
+</div>
+
+### Properties
+
+- `component`: is another object of type `MessageComponentWithCustomId`.
+- `handler`: is another object of type `InteractionHandler`.

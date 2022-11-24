@@ -1,0 +1,65 @@
+---
+title: createApplicationCommandHandler
+layout: ../../layouts/MainLayout.astro
+---
+
+`createApplicationHandler` is a function that will handle any request to your bot.
+
+```typescript
+const applicationHandler = createApplicationCommandHandler(application, env, context);
+```
+
+## Usage
+
+In your `index.{js,ts}` file you will initilize your bot by creating the application handler.
+
+```typescript
+import { createApplicationCommandHandler, Permissions } from "@discordcf/framework";
+import yourCommmand from "./cmd/your-command";
+import yourComponent from "./components/your-component";
+
+let applicationCommandHandler: (request: Request) => Promise<Response>;
+
+export interface Env {
+  APPLICATION_ID: string;
+  CLIENT_SECRET: string;
+  PUBLIC_KEY: string;
+  BOT_TOKEN: string;
+  GUILD_ID?: string;
+}
+
+export default {
+  fetch: async (request: Request, env: Env, context: ExecutionContext): Promise<Response> => {
+    if (!applicationCommandHandler) {
+      applicationCommandHandler = createApplicationCommandHandler(
+        {
+          applicationId: env.APPLICATION_ID,
+          publicKey: env.PUBLIC_KEY,
+          botToken: env.BOT_TOKEN,
+          commands: [yourCommand],
+          components: [yourComponent],
+          guildId: env.GUILD_ID,
+          permissions: new Permissions(["AddReactions", "SendMessages"]),
+        },
+        env,
+        context,
+      );
+    }
+    return applicationCommandHandler(request);
+  },
+};
+```
+
+## Reference
+
+<div class="m-0 flex justify-start">
+  <span class="rounded-md bg-slate-300 py-2 px-4 font-source-code-pro dark:bg-[#ffffff16]">
+    createApplicationCommandHandler
+  </span>
+</div>
+
+### Parameters
+
+- `application`: holds all the information necessary to set up your bot, and is of type `Application`.
+- `env`: it's a Cloudflare object that is injected into your worker with all the bindings you need (implements `Env`).
+- `context`: it's a Cloudflare object that is injected into your worker that is used by quite a few things such as deferring tasks.

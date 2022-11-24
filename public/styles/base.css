@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --system-ui: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --theme-header-height: 6rem;
+  --theme-sidebar-width: 19rem;
+  --theme-rightsidebar-width: 18rem;
+  --accent: 124, 58, 237;
+  --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #5864e4 30%, #f48121 60%);
+  --theme-discord-gradient: linear-gradient(45deg, rgb(var(--accent)), #444cec 30%, #4a4ea0 60%);
+  --theme-discussions-gradient: linear-gradient(45deg, rgb(var(--accent)), #f7c056 0%, #d8c180 60%);
+  --theme-issues-gradient: linear-gradient(45deg, rgb(var(--accent)), #9c4cfc 30%, #7e4bbd 60%);
+  --dark-accent: #d34ad8;
+  --dark-bg-accent: #782a7b;
+}
+
+html {
+  font-family: var(--system-ui);
+}
+
+html,
+body {
+  margin: 0;
+}

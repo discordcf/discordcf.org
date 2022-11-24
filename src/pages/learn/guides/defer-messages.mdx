@@ -1,0 +1,62 @@
+---
+title: Defer messages
+layout: ../../../layouts/MainLayout.astro
+---
+
+This is a feature that may be useful for many of you.
+Discord allows the bots to send deferred messages to the user as well as follow-up messages.
+
+## Code
+
+```typescript
+import { Command, InteractionResponseType, MessageFlags, Context, APIInteractionResponse } from "@discordcf/framework";
+
+export const deferredCommand: Command = {
+  command: {
+    name: "deferred",
+    description: "A deferred message",
+  },
+  handler: async (ctx: Context): Promise<APIInteractionResponse> => {
+    ctx.defer(async (ctx: Context): Promise<void> => {
+      await ctx.followup.reply({ content: "Message was deferred" });
+      await ctx.followup.reply({ content: "This is a follow up message" });
+    });
+
+    return {
+      type: InteractionResponseType.DeferredChannelMessageWithSource,
+      data: {
+        flags: MessageFlags.Ephemeral,
+      },
+    };
+  },
+};
+
+export default deferredCommand;
+```
+
+So your command will look like this:
+
+- You need the `command` key as well as the `handler` key.
+- The signature of the `handler` is the same as all of our commands.
+- You will be using the `Context` API to follow-up on a messagae you initially sent.
+- The `type` of message you will be sending initially is `DeferredChannelMessageWithSource`.
+- A flag must be set to `Ephemeral` as the message will be only there for a brief moment.
+- The `Context` API allows you to declaratively tell the bot to reply to the message initially sent.
+
+<div class="flex justify-center">
+  <img src="/deferred-message.png" alt="logo" width="75%" />
+</div>
+
+## What happened?
+
+So the user sent the `/deferred` command to our bot. Then, Discord sent a webhook interaction to our endpoint and the handler
+was executed. Keep in mind the connection flow we shallowly described in [Reply on command](/learn/guides/reply-on-command).
+
+There's a connection that begins with the request and ends with the response. So you perfectly say that the connection should end
+after we sent the ephemeral response. Well, keep reading...
+
+The first thing the handler does is calling the `defer()` method to defer any sort of code you put inside — the code must be in the form of a callback function — The defer method will allow the worker to keep processing the task you defined
+after the response has been sent for a given period of time, you can't process forever. The limit is 30 seconds, and this a Cloudflare
+hard limit. So, don't run tasks that take more than 30 seconds to send a follow-up message.
+
+Let's rewind a little bit. When the interaction arrives for the first time the `ctx` object will store that interaction that has all the infromation needed to create a follow-up message. Then, whenever you call the `ctx.followup.reply()` method, it'll know what message needs be followed; by default, it's the latest.

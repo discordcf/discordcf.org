@@ -1,0 +1,55 @@
+---
+title: Getting Started
+layout: ../../layouts/MainLayout.astro
+---
+
+import CommunityButtons from "../../components/CommunityButtons.astro";
+import Card from "../../components/Card.astro";
+
+<div class="flex items-center justify-center gap-4">
+  <img src="/logo.png" alt="logo" width="13.5%" />
+  <div
+    id="#getting-started-logo"
+    class="[background-size:400%],
+    self-center font-bakbak text-8xl
+    font-bold
+    [background-image:var(--accent-gradient)]
+    [background-position:0%]
+    [background-clip:text]
+    [-webkit-text-fill-color:transparent]"
+  >
+    <span class="m-0">DISCORD.CF</span>
+  </div>
+</div>
+
+## What is this?
+
+It's a framework to build your own Discord blazingly fast bots on top Cloudflare Workers.
+
+## Key Features
+
+- Free hosting: Your bots can be deployed on a free subscription.
+- Serverless: No server has to be maintained.
+- Lightweight: The framework is small and really simple to understand.
+- Flexible: Even if you are abstracted away from the Discord API, you can still interact with it.
+
+<div class="my-8 flex gap-6">
+  <Card title="Learn discord.cf" description="Learn how to transform your ideas into amazing bots." />
+  <Card title="API Reference" description="Look up all the information you need to use this framework." />
+</div>
+
+## Find out more
+
+🔥 Look at all of our [tutorials and guides](/learn/tutorials/hello-bot).
+
+✨ Learn [how it was built](/learn/appendix/history).
+
+⚡ Check out our [official repository](https://github.com/discordcf/discordcf).
+
+📚 Help to improve the [documentation](https://github.com/discordcf/discordcf.org).
+
+## Community
+
+If you'd like to be part of the community, make sure you have these options to communicate with fellow developers.
+
+<CommunityButtons />

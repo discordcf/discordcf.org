@@ -1,0 +1,49 @@
+---
+title: Permissions
+layout: ../../layouts/MainLayout.astro
+---
+
+`Permissions` is a class used to define the permissions your bot will have in your server.
+
+```typescript
+const permissions = new Permissions(types);
+```
+
+## Usage
+
+It's only used when you first define your `Application` object. You need to define all the permissions you want for your bot to have
+in your server.
+
+```typescript
+const application: Application = {
+  // Other fields above
+  permissions: new Permissions([
+    "AddReactions",
+    "AttachFiles",
+    "EmbedLinks",
+    "SendMessages",
+    "SendTTSMessages",
+    "MentionEveryone",
+    "UseExternalEmojis",
+    "UseExternalStickers",
+  ]),
+};
+```
+
+## Reference
+
+`Permissions`
+
+### Methods
+
+`constructor(types: PermissionFlags[])`
+
+Constructs the `Permission` object with all the permissions defined in `PermissionFlags`.
+
+`compute(): string`
+
+Converts the permission flags to a single number represented in a string with the encoded permissions.
+
+### Properties
+
+- `types`: an array of `PermissionFlags`, in other words, an array of `string`.

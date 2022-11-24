@@ -1,0 +1,16 @@
+---
+export async function getStaticPaths() {
+  // get english pages that moved from `/` to `/`
+  const englishPages = await Astro.glob("./**/*.mdx");
+  return englishPages.map((page) => ({
+    params: {
+      slug: page.url!.slice(4),
+    },
+    props: {
+      englishSlug: page.url,
+    },
+  }));
+}
+---
+
+<meta http-equiv="refresh" content={`0;url=${Astro.props.englishSlug}`} />

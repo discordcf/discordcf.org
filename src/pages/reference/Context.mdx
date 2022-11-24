@@ -1,0 +1,73 @@
+---
+title: Context
+layout: ../../layouts/MainLayout.astro
+---
+
+`Context` is one of the most important classes, and it can be seen as one of the API to interact with Discord.
+
+## Usage
+
+Whenever you define your handler signature, you will need to define a parameter `ctx` of type `Context`.
+
+```typescript
+import { Command, InteractionResponseType, Context, APIInteractionResponse } from "@discordcf/framework";
+
+export const helloCommand: Command = {
+  command: {
+    name: "hello",
+    description: "A simple hello message",
+  },
+  handler: async (ctx: Context): Promise<APIInteractionResponse> => {
+    const userId = ctx.interaction.structure.member?.user.id;
+    return {
+      type: InteractionResponseType.ChannelMessageWithSource,
+      data: {
+        content: `Hello, <@${userId}>`,
+        allowed_mentions: {
+          users: [userId || ""],
+        },
+      },
+    };
+  },
+};
+
+export default helloCommand;
+```
+
+## Reference
+
+<div class="m-0 flex justify-start">
+  <span class="rounded-md bg-slate-300 py-2 px-4 font-source-code-pro dark:bg-[#ffffff16]">Context</span>
+</div>
+
+### Methods
+
+`constructor(env: any, context: ExecutionContext, interaction: Interaction)`
+
+Used to construct a `Context` object.
+
+`env(): any`
+
+Returns the environment object injected by Cloudflare, to be used in the handlers if necessary.
+
+`context(): ExecutionContext`
+
+Returns the `ExecutionContext` injected by Cloudflare.
+
+`interaction(): Interaction`
+
+Returns the `Interaction` object defined in this framework.
+
+`followup(): Followup`
+
+Returns a `Followup` object that is used to interact with follow-up messages.
+
+`defer(callback: (...args: any) => Promise<any>): void`
+
+Used to defer any task.
+
+### Properties
+
+- `env`: the environment injected by Cloudflare, with all the bindings you specified.
+- `context`: the `ExecutionContext` Cloudflare injects into the worker.
+- `interaction`: the `Interaction` object associated with an interaction.

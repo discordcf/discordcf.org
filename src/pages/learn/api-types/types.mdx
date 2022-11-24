@@ -1,0 +1,29 @@
+---
+title: Types API
+layout: ../../../layouts/MainLayout.astro
+---
+
+Since we encourage developers to use TypeScript rather than JavaScript, we've deliberately decided not to create our own
+Discord API types library.
+A very successful library has been available for quite some time now, and that one is [`discord-api-types`](https://discord-api-types.dev/)
+built and maintained by the folks from `discordjs`.
+
+## API versioning
+
+Discord supports a REST API to interact with the servers. This REST API is versioned by using semantic versioning, and nowadays
+Discord supports quite a few versions for their API.
+
+Discord API Types is exposing the types following that semantic versioning convention. So we decided to export from our package their types, so you don't need to install `discord-api-types` into your package directly, it'll be a transient dependency for you.
+Since this is a beta version we're only exposing the latest version of these types, and from there, we'll see how it goes and how the community interactrs with it.
+
+So for instance, if for some reason you want some type that is not in this documentation, most likely you'll need to visit their docs page.
+
+## Example
+
+Remember when you defined your first command and its handler, the signature had to be like this:
+
+```typescript
+async (ctx: Context): Promise<APIInteractionResponse>
+```
+
+The type `APIInteractionResponse`, even though you import from `@discordcf/framework`, it's a `discord-api-types` type, and you'd need to visit this [link](https://discord-api-types.dev/api/next/discord-api-types-v10#APIInteractionResponse) to find out what it is.

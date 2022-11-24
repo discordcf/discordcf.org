@@ -1,0 +1,39 @@
+---
+title: ApplicationCommandHandler
+layout: ../../layouts/MainLayout.astro
+---
+
+`ApplicationCommandHandler` is a type that is used to create an application command handler.
+
+```typescript
+type ApplicationCommandHandler = (request: Request, ...extra: any) => Promise<any>;
+```
+
+## Usage
+
+Used when you call the function `createApplicationCommandHandler`.
+
+```typescript
+const handler: ApplicationCommandHandler = (applicationCommandHandler = createApplicationCommandHandler(
+  application,
+  env,
+  context,
+));
+```
+
+## Reference
+
+<div class="m-0 flex justify-start">
+  <span class="rounded-md bg-slate-300 py-2 px-4 font-source-code-pro dark:bg-[#ffffff16]">
+    ApplicationCommandHandler
+  </span>
+</div>
+
+### Parameters
+
+- `request`: the Cloudflare request object of type `Request`.
+- `extra`: more arguments you may need.
+
+### Return
+
+- A `Promise<any>` as it's an `async` method.

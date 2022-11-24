@@ -1,0 +1,17 @@
+---
+import { IoLanguage as Language } from "react-icons/io5/index.js";
+import { IoIosArrowDown as ArrowDown } from "react-icons/io/index.js";
+---
+
+<div class="relative cursor-pointer rounded-md border-[0.5px] border-solid border-gray-300 bg-[#149ac9]">
+  <Language className="text-xl absolute top-0 h-full pointer-events-none inset-x-3" />
+  <select
+    name="language"
+    class="w-full cursor-pointer appearance-none bg-transparent py-2 px-12 opacity-80 outline-none after:mx-2"
+  >
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="jp">日本語</option>
+  </select>
+  <ArrowDown className="text-xl absolute top-0 h-full pointer-events-none right-2 opacity-80" />
+</div>

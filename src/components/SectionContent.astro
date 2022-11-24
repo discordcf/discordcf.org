@@ -1,0 +1,48 @@
+---
+import { IoIosArrowForward } from "react-icons/io/index.js";
+import { getCurrentSection, getCurrentSlug } from "../util/util";
+
+export interface Props {
+  type?: string;
+  currentPage: string;
+  topics: Array<{
+    header: string;
+    items: Array<{ text: string; slug: string }>;
+  }>;
+}
+
+const { type = "", currentPage, topics } = Astro.props;
+
+const currentSection = getCurrentSection(currentPage);
+const currentSlug = getCurrentSlug(currentPage);
+---
+
+{
+  currentSection === type && (
+    <>
+      {topics.map((topic) => (
+        <li class="[&>details[open]>summary>svg]:rotate-90 [&>details>ul>li]:opacity-0 [&>details[open]>ul>li]:opacity-100">
+          <details open>
+            <summary class="mb-3 flex list-none items-center justify-between pr-6 pl-2 font-medium">
+              {topic.header}
+              <IoIosArrowForward className="duration-150 ease-in" />
+            </summary>
+            <ul class="flex flex-col">
+              {topic.items.map((item) => (
+                <li
+                  class={`py-3 pr-6 pl-2 text-sm ${
+                    currentSlug === item.slug
+                      ? "bg-[#d0d0fea4] font-medium text-[#4e4c4b] dark:bg-[#272b34] dark:text-[var(--dark-accent)]"
+                      : ""
+                  } rounded-r-lg transition-opacity duration-1000`}
+                >
+                  <a href={`/${type}/${item.slug}`}>{item.text}</a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        </li>
+      ))}
+    </>
+  )
+}

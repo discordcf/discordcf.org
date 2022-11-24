@@ -1,0 +1,73 @@
+---
+import { IoIosArrowForward } from "react-icons/io/index.js";
+---
+
+<footer
+  class="m-auto flex flex-col gap-14 p-12 [margin-inline-start:var(--theme-sidebar-width)] [margin-inline-end:var(--theme-rightsidebar-width)]"
+>
+  <div
+    class="px-auto flex w-full flex-col items-center gap-4 border-y-[1px] border-solid border-y-slate-500 border-opacity-25 py-6 text-xs"
+  >
+    <span class="text-opacity-75">© {2022}. All rights reserved.</span>
+    <button class="mx-auto rounded-md bg-[#C1DDE6] py-2 px-6 text-base font-medium dark:bg-sky-700">
+      <a class="dark:t flex items-center justify-center gap-2" href="https://github.com/discordcf/discordcf.org"
+        >Improve the docs <IoIosArrowForward width="30px" />
+      </a>
+    </button>
+  </div>
+  <div class="mx-auto grid grid-cols-2 gap-x-12 gap-y-8 xl:grid-cols-4">
+    <div class="flex flex-col gap-3">
+      <span class="text-xl">Learn Discord</span>
+      <ul class="flex flex-col gap-2 text-sm font-light underline-offset-4 dark:text-slate-300 hover:[&>li]:underline">
+        <li>
+          <a href="/learn/getting-started">Getting Started</a>
+        </li>
+        <li>
+          <a href="/learn/installation">Installation</a>
+        </li>
+        <li>
+          <a href="/learn/tutorials/hello-bot">Create your first bot</a>
+        </li>
+        <li>
+          <a href="/learn/api-types/how-to">Discord API types</a>
+        </li>
+      </ul>
+    </div>
+    <div class="flex flex-col gap-3">
+      <span class="text-xl">API Reference</span>
+      <ul class="flex flex-col gap-2 text-sm font-light underline-offset-4 dark:text-slate-300 hover:[&>li]:underline">
+        <li>
+          <a href="/reference/createApplicationCommandHandler">Application API</a>
+        </li>
+        <li>
+          <a href="/reference/Context">Context API</a>
+        </li>
+      </ul>
+    </div>
+    <div class="flex flex-col gap-3">
+      <span class="text-xl">Community</span>
+      <ul class="flex flex-col gap-2 text-sm font-light underline-offset-4 dark:text-slate-300 hover:[&>li]:underline">
+        <li>
+          <a href="https://discord.gg/2v3NYMbWxy">Join our Discord Server</a>
+        </li>
+        <li>
+          <a href="https://github.com/discordcf/discordcf/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a>
+        </li>
+        <li>
+          <a href="https://github.com/discordcf/discordcf/blob/main/CONTRIBUTE.md">Contribute</a>
+        </li>
+      </ul>
+    </div>
+    <div class="flex flex-col gap-3">
+      <span class="text-xl">More</span>
+      <ul class="flex flex-col gap-2 text-sm font-light underline-offset-4 dark:text-slate-300 hover:[&>li]:underline">
+        <li>
+          <a href="https://discord.com/developers/docs/intro">Discord Developer Documentation</a>
+        </li>
+        <li>
+          <a href="https://www.cloudflare.com/learning/">Learn Cloudflare</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
