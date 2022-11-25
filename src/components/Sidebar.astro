@@ -1,58 +1,69 @@
 ---
-const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1); // remove the first "/"
+export interface Props {
+  currentPage: string;
+}
 
-console.log(currentPath);
+const { currentPage } = Astro.props as Props;
+
+const active = ["border-b-[2px]", "border-b-[#149ac9]", "text-[#149ac9]"];
+
+const sections = [
+  { name: "Home", href: "/" },
+  { name: "Learn", href: "/learn/quick-start/" },
+  { name: "Reference", href: "/reference/" },
+];
+
+const matchType = (path: string) =>
+  (path.match(/(?<=\/.*\/).*(?=\/)/g) ?? [""])[0];
+
+const activeTab = matchType(currentPage);
+
+console.log(activeTab);
 ---
 
 <aside
   class="flex flex-col fixed top-24 left-0 p-4 mb-6 mt-2 gap-4 w-[var(--theme-sidebar-width)] border-r-[0.25px] border-b-slate-400"
 >
-  <nav class="flex justify-center text-md mb-2 pb-2 mx-auto border-b-[0.1px] px-2">
-    <a href="/learn/hello-world">Home</a>
-    <a href="/learn/quick-start" class="px-6">Learn</a>
-    <a href="/reference">Reference</a>
+  <nav
+    class="flex justify-center text-md mb-2 mx-0 w-auto border-b-[0.1px] border-b-gray-500"
+  >
+    {
+      sections.map((section) => (
+        <a
+          href={section.href}
+          class={
+            activeTab ===
+            (section.name === "Home" ? "" : section.name.toLowerCase())
+              ? active.join(" ")
+              : ""
+          }
+        >
+          {section.name}
+        </a>
+      ))
+    }
   </nav>
   <nav class="overflow-y-scroll">
     <ul>
       <li class="mb-2">
         <a href="/learn/installation">Installation</a>
       </li>
-      <li>Quick Start</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
-      <li>Get Started</li>
+      <li>
+        <details open>
+          <summary>
+            Quick Start
+          </summary>
+          <ul>
+            <li>Hahaha</li>
+          </ul>
+        </details>
+      </li>
     </ul>
   </nav>
 </aside>
+
+<style>
+  nav > a {
+    padding: 0.6rem 1rem;
+  }
+</style>
