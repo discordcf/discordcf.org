@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import Sidebar from "../components/Sidebar.astro";
+import LeftSidebar from "../components/LeftSidebar.astro";
 
 const url = Astro.url;
 const currentPage = url.pathname;
@@ -9,7 +9,7 @@ const currentPage = url.pathname;
 
 <Layout title="Welcome | discord.cf">
   <Header />
-  <Sidebar currentPage={currentPage}/>
+  <LeftSidebar currentPage={currentPage}/>
   <div class="flex h-full">
     <!-- <Sidebar /> -->
     <main

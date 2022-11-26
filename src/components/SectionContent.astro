@@ -1,0 +1,33 @@
+---
+export interface Props {
+  type?: string;
+  activeTab: string;
+  topics: Array<{
+    header: string;
+    items: Array<{ text: string; slug: string }>;
+  }>;
+}
+
+const { type = "", activeTab, topics } = Astro.props;
+---
+
+{
+  activeTab === type && (
+    <>
+      {topics.map((topic) => (
+        <li>
+          <details open>
+            <summary>{topic.header}</summary>
+            <ul>
+              {topic.items.map((item) => (
+                <li>
+                  <a href={`/en/${type}/${item.slug}`}>{item.text}</a>
+                </li>
+              ))}
+            </ul>
+          </details>
+        </li>
+      ))}
+    </>
+  )
+}

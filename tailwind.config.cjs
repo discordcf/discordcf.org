@@ -11,6 +11,27 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            maxWidth: '80ch',
+            'div.heading-wrapper': {
+              display: 'flex',
+              flexDirection: 'row-reverse',
+              justifyContent: 'flex-end',
+              alignItems: 'baseline',
+              marginInlineStart: '-2rem',
+            },
+            'a.anchor-link': {
+              display: 'flex',
+              position: 'relative',
+              width: '2rem',
+              height: '1.5rem',
+              justifyContent: 'center',
+              verticalAlign: 'baseline',
+              alignItems: 'center',
+              opacity: 0,
+              '&:hover': {
+                opacity: 0.8,
+              }
+            },
             h1: {
               fontSize: '2.5rem',
             },

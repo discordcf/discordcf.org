@@ -1,0 +1,32 @@
+---
+export interface Props {
+  activeTab: string;
+}
+
+const { activeTab } = Astro.props;
+
+const sections = [
+  { name: "Learn", href: "/learn/getting-started/" },
+  { name: "Reference", href: "/reference/createApplicationCommandHandler" },
+];
+
+const active = ["border-b-[2px]", "border-b-[#149ac9]", "text-[#149ac9]"];
+---
+
+<nav
+  class="flex justify-around text-md mb-2 mx-0 w-auto border-b-[0.1px] border-b-gray-500"
+>
+  {
+    sections.map((section) => (
+      <a
+        href={section.href}
+        class={
+          "flex justify-center items-center py-2 px-6 w-full  " +
+          (activeTab === section.name.toLowerCase() ? active.join(" ") : "")
+        }
+      >
+        {section.name}
+      </a>
+    ))
+  }
+</nav>
