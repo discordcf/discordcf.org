@@ -11,6 +11,9 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
             maxWidth: '80ch',
             'div.heading-wrapper': {
               display: 'flex',
