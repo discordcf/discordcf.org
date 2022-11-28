@@ -69,5 +69,5 @@ export default defineConfig({
     }]]
   })],
   output: "static",
-  adapter: cloudflare()
+  // adapter: cloudflare()
 });
