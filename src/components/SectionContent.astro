@@ -14,7 +14,7 @@ const { type = "", currentPage, topics } = Astro.props;
 
 const getCurrentSection = (path: string) => path.match(/(?<=\/[a-z]{2}\/)[^/]*/g)![0];
 
-const getCurrentSlug = (path: string) => path.match(/(?<=(learn|reference)\/).*/g)![0];
+const getCurrentSlug = (path: string) => path.match(/(?<=(learn|reference)\/).*[^/]/g)![0];
 
 const currentSection = getCurrentSection(currentPage);
 const currentSlug = getCurrentSlug(currentPage);

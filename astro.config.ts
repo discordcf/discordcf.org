@@ -8,11 +8,11 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 import mdx from "@astrojs/mdx";
+
 import { backgroundPrimary, foregroundPrimary, tokens } from "./syntax-highlighting-theme";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import { h } from "hastscript";
-import cloudflare from "@astrojs/cloudflare";
 
 const AnchorLinkIcon = h("svg", {
   width: 16,
@@ -64,10 +64,8 @@ export default defineConfig({
       content: heading => [h(`span.anchor-icon`, {
         ariaHidden: "true"
       }, AnchorLinkIcon)
-      // createSROnlyLabel(heading),
       ]
     }]]
   })],
   output: "static",
-  // adapter: cloudflare()
 });
