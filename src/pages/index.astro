@@ -12,11 +12,11 @@ const KNOWN_LANGUAGES = ['bg', 'de', 'en', 'es', 'fi', 'nl', 'pt-br', 'zh-cn', '
 let newLangWithRegion = (window.navigator.userLanguage || window.navigator.language || 'en-US').substr(0, 5);
 let newLang = newLangWithRegion.substr(0, 2);
 if (KNOWN_LANGUAGES.includes(newLangWithRegion)) {
-	window.location.pathname = '/' + newLangWithRegion + '/getting-started';
+  window.location.pathname = '/' + newLangWithRegion + '/getting-started';
 } else if (KNOWN_LANGUAGES.includes(newLang)) {
-	window.location.pathname = '/' + newLang + '/getting-started';
+  window.location.pathname = '/' + newLang + '/getting-started';
 } else {
-	window.location.pathname = '/en/getting-started';
+  window.location.pathname = '/en/getting-started';
 }
 */
 ---

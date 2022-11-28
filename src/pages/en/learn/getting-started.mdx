@@ -61,11 +61,10 @@ export default {
 };
 ```
 
-
 > A Markdown/MDX layout will have access to all its file’s exported properties from Astro.props with some key differences:
+>
 > - Heading information (i.e. `h1 -> h6` elements) is available via the headings array, rather than a getHeadings() function.
 > - `file` and url are also available as nested frontmatter properties (i.e. frontmatter.url and frontmatter.file).
 > - Values defined outside of frontmatter (e.g. export statements in MDX) are not available. Consider [importing a layout instead](https://docs.astro.build/en/core-concepts/layouts/#importing-layouts-manually-mdx).
-
 
 `hello world`

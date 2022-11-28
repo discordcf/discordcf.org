@@ -245,10 +245,7 @@ export const tokens: IRawThemeSetting[] = [
   },
   {
     name: "Punctuation Section Embedded",
-    scope: [
-      "punctuation.section.embedded.begin",
-      "punctuation.section.embedded.end",
-    ],
+    scope: ["punctuation.section.embedded.begin", "punctuation.section.embedded.end"],
     settings: {
       foreground: red[0],
     },
@@ -381,10 +378,7 @@ export const tokens: IRawThemeSetting[] = [
   },
   {
     name: "Quotes",
-    scope: [
-      "punctuation.definition.string.begin",
-      "punctuation.definition.string.end",
-    ],
+    scope: ["punctuation.definition.string.begin", "punctuation.definition.string.end"],
     settings: {
       foreground: green[0],
     },
@@ -419,10 +413,7 @@ export const tokens: IRawThemeSetting[] = [
   },
   {
     name: "[C/CPP] Meta Preprocessor Include",
-    scope: [
-      "source.c meta.preprocessor.include",
-      "source.c string.quoted.other.lt-gt.include",
-    ],
+    scope: ["source.c meta.preprocessor.include", "source.c string.quoted.other.lt-gt.include"],
     settings: {
       foreground: yellow[1],
     },
@@ -449,11 +440,7 @@ export const tokens: IRawThemeSetting[] = [
   },
   {
     name: "[CSS] Property values",
-    scope: [
-      "meta.property-value.css",
-      "meta.property-list.css",
-      "source.css keyword.other.unit",
-    ],
+    scope: ["meta.property-value.css", "meta.property-list.css", "source.css keyword.other.unit"],
     settings: {
       foreground: yellow[0],
     },
@@ -731,10 +718,7 @@ export const tokens: IRawThemeSetting[] = [
   },
   {
     name: "[Markdown] Markup Inline",
-    scope: [
-      "text.html.markdown markup.inline.raw",
-      "text.html.markdown markup.inline.raw punctuation.definition.raw",
-    ],
+    scope: ["text.html.markdown markup.inline.raw", "text.html.markdown markup.inline.raw punctuation.definition.raw"],
     settings: {
       foreground: yellow[1],
     },
@@ -814,10 +798,7 @@ export const tokens: IRawThemeSetting[] = [
   },
   {
     name: "[Markdown] Punctuation Definition Constant/String",
-    scope: [
-      "text.html.markdown punctuation.definition.constant",
-      "text.html.markdown punctuation.definition.string",
-    ],
+    scope: ["text.html.markdown punctuation.definition.constant", "text.html.markdown punctuation.definition.string"],
     settings: {
       foreground: red[0],
     },
@@ -867,10 +848,7 @@ export const tokens: IRawThemeSetting[] = [
   },
   {
     name: "[TypeScript] Object-literal keys",
-    scope: [
-      "source.ts meta.object-literal.key",
-      "source.tsx meta.object-literal.key",
-    ],
+    scope: ["source.ts meta.object-literal.key", "source.tsx meta.object-literal.key"],
     settings: {
       foreground: foregroundPrimary,
     },
@@ -957,10 +935,7 @@ export const tokens: IRawThemeSetting[] = [
   },
   {
     name: "[XML] Entity Name Tag Namespace",
-    scope: [
-      "text.xml string.unquoted.cdata",
-      "text.xml string.unquoted.cdata punctuation.definition.string",
-    ],
+    scope: ["text.xml string.unquoted.cdata", "text.xml string.unquoted.cdata punctuation.definition.string"],
     settings: {
       foreground: cyan[0],
     },

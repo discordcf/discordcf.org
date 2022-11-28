@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import LeftSidebar from "../components/LeftSidebar.astro";
-import RightSidebar from "../components/RightSidebar.astro";
+import RightSidebar from "../components/RightSidebar";
 
 const url = Astro.url;
 const currentPage = url.pathname;
@@ -17,9 +17,9 @@ const { headings, content } = Astro.props;
     class="flex flex-col justify-center m-auto py-6 pr-48 pl-6 mt-[var(--theme-header-height)] [margin-inline-start:var(--theme-sidebar-width)]"
   >
     <article class="prose dark:prose-invert mx-2 px-4">
-      <h1>{content.title}</h1>
+      <h1 id="overview">{content.title}</h1>
       <slot />
     </article>
   </main>
-  <RightSidebar {headings} />
+  <RightSidebar {headings} client:load />
 </Layout>

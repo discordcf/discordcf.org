@@ -8,24 +8,18 @@ export interface Props {
   currentPage: string;
 }
 
-const matchType = (path: string) => path.match(/(?<=\/[a-z]{2}\/)[^\/]*/g)![0];
+const matchType = (path: string) => path.match(/(?<=\/[a-z]{2}\/)[^/]*/g)![0];
 
 const { currentPage } = Astro.props as Props;
 const activeTab = matchType(currentPage);
 ---
 
-<aside
-  class="flex flex-col fixed top-24 left-0 p-4 mb-6 mt-2 gap-4 w-[var(--theme-sidebar-width)] border-b-slate-400"
->
+<aside class="flex flex-col fixed top-24 left-0 p-4 mb-6 mt-2 gap-4 w-[var(--theme-sidebar-width)] border-b-slate-400">
   <SectionGroup activeTab={activeTab} />
   <nav>
     <ul>
       <SectionContent activeTab={activeTab} type="learn" topics={learnTopics} />
-      <SectionContent
-        activeTab={activeTab}
-        type="reference"
-        topics={referenceTopics}
-      />
+      <SectionContent activeTab={activeTab} type="reference" topics={referenceTopics} />
     </ul>
   </nav>
 </aside>

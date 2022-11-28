@@ -1,15 +1,15 @@
 ---
 export async function getStaticPaths() {
-	// get english pages that moved from `/` to `/en/`
-	const englishPages = await Astro.glob('./**/*.mdx');
-	return englishPages.map((page) => ({
-		params: {
-			slug: page.url!.slice(4),
-		},
-		props: {
-			englishSlug: page.url,
-		},
-	}));
+  // get english pages that moved from `/` to `/en/`
+  const englishPages = await Astro.glob("./**/*.mdx");
+  return englishPages.map((page) => ({
+    params: {
+      slug: page.url!.slice(4),
+    },
+    props: {
+      englishSlug: page.url,
+    },
+  }));
 }
 ---
 
