@@ -1,5 +1,4 @@
 ---
-import { Image } from "@astrojs/image/components";
 import ThemeToggleButton from "./ThemeToggleButton";
 ---
 
@@ -8,7 +7,7 @@ import ThemeToggleButton from "./ThemeToggleButton";
 >
   <a href="/">
     <div class="flex items-center gap-2">
-      <Image src={import("/public/logo.png")} alt="logo" width={32} aspectRatio={"1:1"} />
+      <img src="/public/logo.png" alt="logo" width={32} />
       <h1 class="text-3xl">
         <span class="font-bakbak text-white">DISCORD.CF</span>
       </h1>

@@ -4,9 +4,6 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 
 // https://astro.build/config
-import image from "@astrojs/image";
-
-// https://astro.build/config
 import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
@@ -16,6 +13,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import { h } from "hastscript";
 import cloudflare from "@astrojs/cloudflare";
+
 const AnchorLinkIcon = h("svg", {
   width: 16,
   height: 16,
@@ -40,16 +38,17 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: "shiki",
     shikiConfig: {
-      theme: {
-        name: "Star Gaze",
-        type: "dark",
-        settings: tokens,
-        bg: backgroundPrimary,
-        fg: foregroundPrimary
-      }
+      theme: 'material-default',
+      // theme: {
+      //   name: "Star Gaze",
+      //   type: "dark",
+      //   settings: tokens,
+      //   bg: backgroundPrimary,
+      //   fg: foregroundPrimary
+      // }
     }
   },
-  integrations: [react(), image(), tailwind({
+  integrations: [react(), tailwind({
     config: {
       applyBaseStyles: false
     }
