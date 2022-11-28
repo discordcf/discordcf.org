@@ -27,6 +27,7 @@ module.exports = {
     project: "tsconfig.json",
   },
   rules: {
+    "multiline-ternary": "off",
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/comma-dangle": "off",
