@@ -11,10 +11,10 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
+            alignSelf: "center",
             maxWidth: "80ch",
+            margin: "1rem",
+            padding: "1rem",
             "div.heading-wrapper": {
               display: "flex",
               flexDirection: "row-reverse",

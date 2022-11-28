@@ -1,26 +1,38 @@
 ---
+import { IoIosArrowForward } from "react-icons/io";
+
 export interface Props {
   type?: string;
-  activeTab: string;
+  currentPage: string;
   topics: Array<{
     header: string;
     items: Array<{ text: string; slug: string }>;
   }>;
 }
 
-const { type = "", activeTab, topics } = Astro.props;
+const { type = "", currentPage, topics } = Astro.props;
+
+const getCurrentSection = (path: string) => path.match(/(?<=\/[a-z]{2}\/)[^/]*/g)![0];
+
+const getCurrentSlug = (path: string) => path.match(/(?<=(learn|reference)\/).*/g)![0];
+
+const currentSection = getCurrentSection(currentPage);
+const currentSlug = getCurrentSlug(currentPage);
 ---
 
 {
-  activeTab === type && (
+  currentSection === type && (
     <>
       {topics.map((topic) => (
-        <li>
+        <li class="text-sm select-none [&>details[open]>summary>svg]:rotate-90 [&>details>ul>li]:opacity-0 [&>details[open]>ul>li]:opacity-100">
           <details open>
-            <summary>{topic.header}</summary>
-            <ul>
+            <summary class="flex items-center justify-between pr-6 pl-2 mb-3 font-medium text-white list-none">
+              {topic.header}
+              <IoIosArrowForward className="duration-150 ease-in" />
+            </summary>
+            <ul class="flex flex-col">
               {topic.items.map((item) => (
-                <li>
+                <li class={`py-3 pr-6 pl-2 ${currentSlug === item.slug ? "dark:bg-[#343a46] dark:text-[#149ac9]" : ""} rounded-r-lg  transition-opacity duration-1000`}>
                   <a href={`/en/${type}/${item.slug}`}>{item.text}</a>
                 </li>
               ))}

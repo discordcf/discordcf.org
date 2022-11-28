@@ -1,9 +1,13 @@
 ---
 export interface Props {
-  activeTab: string;
+  currentPage: string;
 }
 
-const { activeTab } = Astro.props;
+const { currentPage } = Astro.props;
+
+const currentSection = (path: string) => path.match(/(?<=\/[a-z]{2}\/)[^/]*/g)![0];
+
+const activeTab = currentSection(currentPage);
 
 const sections = [
   { name: "Learn", href: "/learn/getting-started/" },
