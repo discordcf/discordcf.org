@@ -10,8 +10,8 @@ const currentSection = (path: string) => path.match(/(?<=\/[a-z]{2}\/)[^/]*/g)![
 const activeTab = currentSection(currentPage);
 
 const sections = [
-  { name: "Learn", href: "/learn/getting-started/" },
-  { name: "Reference", href: "/reference/createApplicationCommandHandler" },
+  { name: "Learn", href: "/en/learn/getting-started/" },
+  { name: "Reference", href: "/en/reference/createApplicationCommandHandler" },
 ];
 
 const active = ["border-b-[2px]", "border-b-[#149ac9]", "text-[#149ac9]"];

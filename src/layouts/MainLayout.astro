@@ -21,5 +21,5 @@ const { headings, content } = Astro.props;
       <slot />
     </article>
   </main>
-  <RightSidebar {headings} />
+  <RightSidebar {headings} client:load/>
 </Layout>
