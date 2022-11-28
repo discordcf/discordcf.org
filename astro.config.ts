@@ -32,8 +32,6 @@ const createSROnlyLabel = (text: string) => {
 };
 
 // https://astro.build/config
-
-// https://astro.build/config
 export default defineConfig({
   markdown: {
     syntaxHighlight: "shiki",
@@ -70,6 +68,6 @@ export default defineConfig({
       ]
     }]]
   })],
-  output: "server",
+  output: "static",
   adapter: cloudflare()
 });
