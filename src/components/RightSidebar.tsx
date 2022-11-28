@@ -12,8 +12,10 @@ const RightSidebar = (props: Props): JSX.Element => {
 
   const onThisPageId = "on-this-page-heading";
 
+  const activeTheme = "bg-[#149ac9] text-white";
+
   useEffect(() => {
-    if (topics.current !== null) return;
+    if (topics.current === null || topics.current === undefined) return;
 
     const setCurrent: IntersectionObserverCallback = (entries): void => {
       for (const entry of entries) {
@@ -27,7 +29,7 @@ const RightSidebar = (props: Props): JSX.Element => {
     };
 
     const observerOptions: IntersectionObserverInit = {
-      rootMargin: "-100px 0% -73%",
+      rootMargin: "-100px 0% -75%",
       threshold: 1,
     };
 
@@ -47,14 +49,22 @@ const RightSidebar = (props: Props): JSX.Element => {
           <h2 id={onThisPageId} className="mb-2 pl-2 font-bold">
             On this page
           </h2>
-          <ul ref={topics} className="border-l-2 border-l-red-400 text-slate-300">
-            <li className={`py-1 pl-2 ${currentId === "overview" ? "bg-sky-400" : ""}`}>
+          <ul ref={topics} className="text-slate-300">
+            <li
+              className={`py-1 pl-2 border-l-4 border-l-[#4a4c4d7c] hover:border-l-orange-400 hover:border-l-4 
+                ${currentId === "overview" ? activeTheme : ""}`}
+            >
               <a href="#overview">Overview</a>
             </li>
             {headings
               .filter(({ depth }) => depth > 1 && depth < 4)
               .map((heading: { text: string; slug: string }) => (
-                <li className={`py-1 pl-2 ${currentId === heading.slug ? "bg-sky-400" : ""}`}>
+                <li
+                  key={heading.slug}
+                  className={`py-1 pl-2 border-l-4 border-l-[#4a4c4d7c] hover:border-l-orange-400 hover:border-l-4 ${
+                    currentId === heading.slug ? activeTheme : ""
+                  }`}
+                >
                   <a href={`#${heading.slug}`}>{heading.text}</a>
                 </li>
               ))}

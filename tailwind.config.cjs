@@ -41,6 +41,9 @@ module.exports = {
             h2: {
               fontSize: "1.875rem",
             },
+            "h1, h2, h3": {
+              scrollMarginTop: "calc(2rem + var(--theme-header-height));",
+            },
             pre: {
               borderColor: "#fff",
               border: "2px",

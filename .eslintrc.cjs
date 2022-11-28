@@ -13,9 +13,9 @@ module.exports = {
         extraFileExtensions: [".astro"],
       },
       rules: {
-        "semi": ["error", "always"],
+        semi: ["error", "always"],
         "comma-dangle": ["error", "only-multiline"],
-        "quotes": ["error", "double"],
+        quotes: ["error", "double"],
         "space-before-function-paren": "off",
         "import/no-absolute-path": "off",
       },
