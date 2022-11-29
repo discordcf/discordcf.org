@@ -3,13 +3,26 @@ title: Getting Started
 layout: ../../../layouts/MainLayout.astro
 ---
 
-## What is discord.cf?
+<div id="#getting-started-logo"
+  class="font-bakbak
+  font-bold text-8xl self-center
+  [background-image:var(--accent-gradient)]
+  [background-size:400%]
+  [background-position:0%]"
+>
+  <span class="m-0">
+    DISCORD.CF
+  </span>
+</div>
 
-discord.cf is a framework to build your own Discord bots on top Cloudflare Workers.
+## What is this?
+
+It's a framework to build your own Discord bots on top Cloudflare Workers.
 
 ## Start your first bot
 
-The first thing you need to do is to start your project. For that we've set up a [template repository](https://github.com/discordcf/starter-bot-template) in Github
+The first thing you need to do is to start your project.
+For that we've set up a [template repository](https://github.com/discordcf/starter-bot-template) in Github
 with all the boilerplate.
 
 If you use Github, you can [create a repository from this template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) through the UI.
@@ -30,41 +43,14 @@ There are a couple steps you need to fulfill before actually testing your bot:
 #### Set up your Discord account
 
 If you haven't registered to Discord, please do it [here](https://discord.com/register/).
+After you have your Discord account you should create your developer app.
+Go to your [developer profile](https://discord.com/developers/applications) and set up a new application.
 
-```typescript
-import { createApplicationCommandHandler, Permissions, type ApplicationCommandHandler } from "cloudflare-discord-bot";
-import { hug } from "./hug";
+For a detailed guide read ["Set up your Discord Application"](/en/learn/appendix/set-up-your-discord-application).
 
-export type EnvInterface = {
-  // Secrets
-  applicationId: string;
-  botToken: string;
-  publicKey: string;
-};
+#### Set up your Cloudflare account
 
-let handler: ApplicationCommandHandler;
-export default {
-  fetch: (req: Request, env: EnvInterface, context: ExecutionContext) => {
-    if (handler === undefined) {
-      handler = createApplicationCommandHandler({
-        applicationId: env.applicationId,
-        botToken: env.botToken,
-        publicKey: env.publicKey,
-        // Optional guildId for development
-        // guildId: "",
-        commands: [hug],
-        permissions: new Permissions([]),
-      });
-    }
-    return handler(req, env, context);
-  },
-};
-```
+Go to [Cloudflare](https://dash.cloudflare.com/sign-up) and sign up on their site. Once you've signed up, you'll find a lot of
+services provided by Cloudflare but for this starting guide, we'll just focus on Cloudflare Workers.
 
-> A Markdown/MDX layout will have access to all its file’s exported properties from Astro.props with some key differences:
->
-> - Heading information (i.e. `h1 -> h6` elements) is available via the headings array, rather than a getHeadings() function.
-> - `file` and url are also available as nested frontmatter properties (i.e. frontmatter.url and frontmatter.file).
-> - Values defined outside of frontmatter (e.g. export statements in MDX) are not available. Consider [importing a layout instead](https://docs.astro.build/en/core-concepts/layouts/#importing-layouts-manually-mdx).
-
-`hello world`
+For a detailed guide read ["Set up your Cloudflare Account"](/en/learn/appendix/set-up-your-cloudflare-account).

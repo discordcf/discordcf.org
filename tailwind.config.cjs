@@ -11,8 +11,10 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            display: "flex",
+            flexDirection: "column",
             alignSelf: "center",
-            maxWidth: "80ch",
+            maxWidth: "100ch",
             margin: "1rem",
             padding: "1rem",
             "div.heading-wrapper": {
@@ -42,6 +44,7 @@ module.exports = {
               fontSize: "1.875rem",
             },
             "h1, h2, h3": {
+              marginTop: "1em",
               scrollMarginTop: "calc(2rem + var(--theme-header-height));",
             },
             pre: {
@@ -86,6 +89,10 @@ module.exports = {
                 color: "#fff",
               },
             },
+            p: {
+              marginTop: "0.5em",
+              marginBottom: "0.5em",
+            }
           },
         },
       }),
