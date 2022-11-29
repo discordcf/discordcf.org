@@ -3,7 +3,7 @@ import ThemeToggleButton from "./ThemeToggleButton";
 ---
 
 <header
-  class="flex fixed top-0 items-center h-[var(--theme-header-height)] justify-center dark:bg-[#404454] bg-[#eee7f4] p-4 m-0 w-full gap-3"
+  class="fixed top-0 m-0 flex h-[var(--theme-header-height)] w-full items-center justify-center gap-3 bg-[#eee7f4] p-4 dark:bg-[#404454]"
 >
   <a href="/">
     <div class="flex items-center gap-2">
@@ -12,7 +12,7 @@ import ThemeToggleButton from "./ThemeToggleButton";
         <span class="font-bakbak">d.cf</span>
         <span class="font-bakbak text-orange-400">Docs</span>
       </h1>
-      <span class="py-1 px-2 mt-1 text-xs dark:bg-[#24242c] rounded-lg">BETA</span>
+      <span class="mt-1 rounded-lg py-1 px-2 text-xs dark:bg-[#24242c]">BETA</span>
     </div>
   </a>
   <ThemeToggleButton client:load />

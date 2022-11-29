@@ -39,7 +39,7 @@ const ThemeToggleButton = (): JSX.Element => {
   useEffect(() => setIsMounted(true), []);
 
   return isMounted ? (
-    <div className="inline-flex ml-auto items-center p-[1px] mr-6 rounded-3xl bg-orange-300 dark:bg-[#149ac9]">
+    <div className="ml-auto mr-6 inline-flex items-center rounded-3xl bg-orange-300 p-[1px] dark:bg-[#149ac9]">
       {themes.map((t) => {
         const checked = t === theme;
 

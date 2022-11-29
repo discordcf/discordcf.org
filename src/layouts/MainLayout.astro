@@ -14,12 +14,12 @@ const { headings, content } = Astro.props;
   <Header />
   <LeftSidebar currentPage={currentPage} />
   <main
-    class="flex justify-center m-auto p-6 mt-[var(--theme-header-height)] [margin-inline-start:var(--theme-sidebar-width)] [margin-inline-end:var(--theme-rightsidebar-width)]"
+    class="m-auto mt-[var(--theme-header-height)] flex justify-center p-6 [margin-inline-start:var(--theme-sidebar-width)] [margin-inline-end:var(--theme-rightsidebar-width)]"
   >
     <article class="prose dark:prose-invert">
       <h1 id="overview">{content.title}</h1>
       <slot />
     </article>
   </main>
-  <RightSidebar {headings} client:load/>
+  <RightSidebar {headings} client:load />
 </Layout>

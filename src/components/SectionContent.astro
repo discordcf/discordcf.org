@@ -24,15 +24,19 @@ const currentSlug = getCurrentSlug(currentPage);
   currentSection === type && (
     <>
       {topics.map((topic) => (
-        <li class="text-sm select-none [&>details[open]>summary>svg]:rotate-90 [&>details>ul>li]:opacity-0 [&>details[open]>ul>li]:opacity-100">
+        <li class="select-none text-sm [&>details[open]>summary>svg]:rotate-90 [&>details>ul>li]:opacity-0 [&>details[open]>ul>li]:opacity-100">
           <details open>
-            <summary class="flex items-center justify-between pr-6 pl-2 mb-3 font-medium text-white list-none">
+            <summary class="mb-3 flex list-none items-center justify-between pr-6 pl-2 font-medium text-white">
               {topic.header}
               <IoIosArrowForward className="duration-150 ease-in" />
             </summary>
             <ul class="flex flex-col">
               {topic.items.map((item) => (
-                <li class={`py-3 pr-6 pl-2 ${currentSlug === item.slug ? "dark:bg-[#343a46] dark:text-[#149ac9]" : ""} rounded-r-lg  transition-opacity duration-1000`}>
+                <li
+                  class={`py-3 pr-6 pl-2 ${
+                    currentSlug === item.slug ? "dark:bg-[#343a46] dark:text-[#149ac9]" : ""
+                  } rounded-r-lg  transition-opacity duration-1000`}
+                >
                   <a href={`/en/${type}/${item.slug}`}>{item.text}</a>
                 </li>
               ))}
