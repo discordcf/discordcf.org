@@ -38,13 +38,15 @@ module.exports = {
               },
             },
             h1: {
-              fontSize: "2.5rem",
+              fontSize: "3rem",
             },
             h2: {
               fontSize: "1.875rem",
             },
-            "h1, h2, h3": {
+            "h2, h3, h4": {
               marginTop: "1em",
+            },
+            "h1, h2, h3, h4": {
               scrollMarginTop: "calc(2rem + var(--theme-header-height));",
             },
             pre: {

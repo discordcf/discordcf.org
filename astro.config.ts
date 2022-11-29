@@ -9,7 +9,6 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 import mdx from "@astrojs/mdx";
 
-import { backgroundPrimary, foregroundPrimary, tokens } from "./syntax-highlighting-theme";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import { h } from "hastscript";
@@ -41,13 +40,6 @@ export default defineConfig({
     syntaxHighlight: "shiki",
     shikiConfig: {
       theme: "material-default",
-      // theme: {
-      //   name: "Star Gaze",
-      //   type: "dark",
-      //   settings: tokens,
-      //   bg: backgroundPrimary,
-      //   fg: foregroundPrimary
-      // }
     },
   },
   integrations: [

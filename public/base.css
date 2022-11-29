@@ -9,7 +9,7 @@
   --theme-sidebar-width: 18rem;
   --theme-rightsidebar-width: 18rem;
   --accent: 124, 58, 237;
-  --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+  --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #5864e4 30%, #f48121 60%);
 }
 
 html {
