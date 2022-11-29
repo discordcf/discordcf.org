@@ -24,7 +24,7 @@ const currentSlug = getCurrentSlug(currentPage);
   currentSection === type && (
     <>
       {topics.map((topic) => (
-        <li class="select-none text-sm [&>details[open]>summary>svg]:rotate-90 [&>details>ul>li]:opacity-0 [&>details[open]>ul>li]:opacity-100">
+        <li class="[&>details[open]>summary>svg]:rotate-90 [&>details>ul>li]:opacity-0 [&>details[open]>ul>li]:opacity-100">
           <details open>
             <summary class="mb-3 flex list-none items-center justify-between pr-6 pl-2 font-medium text-white">
               {topic.header}

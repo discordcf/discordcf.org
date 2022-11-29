@@ -45,7 +45,7 @@ const RightSidebar = ({ headings }: Props): JSX.Element => {
   return (
     <aside className="fixed top-24 right-0 w-[var(--theme-rightsidebar-width)]">
       {headings && (
-        <nav className="my-4 flex flex-col overflow-y-scroll py-4 text-sm">
+        <nav className="my-4 flex flex-col py-4 text-sm">
           <h2 id={onThisPageId} className="mb-2 pl-2 font-bold">
             On this page
           </h2>

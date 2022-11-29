@@ -12,6 +12,7 @@ export const learnTopics = [
       { text: "Reply on command", slug: "guides/reply-on-command" },
       { text: "Defer messages", slug: "guides/defer-messages" },
       { text: "Send embeds", slug: "guides/send-embeds" },
+      { text: "JavaScript", slug: "guides/javascript" },
     ],
   },
   {
@@ -19,6 +20,27 @@ export const learnTopics = [
     items: [
       { text: "How to use types", slug: "api-types/how-to" },
       { text: "Most common types", slug: "api-types/most-commmon" },
+    ],
+  },
+  {
+    header: "Appendix",
+    items: [
+      { text: "Set up your Cloudflare account", slug: "appendix/set-up-your-cloudflare-account" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
     ],
   },
 ];
