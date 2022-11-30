@@ -2,6 +2,9 @@
 title: Getting Started
 layout: ../../../layouts/MainLayout.astro
 ---
+import CommunityButtons from "../../../components/CommunityButtons.astro";
+import Card from "../../../components/Card.astro";
+
 
 <div class="flex items-center justify-center gap-4">
   <img src="../../../public/logo.png" alt="logo" width="13.5%"/>
@@ -19,102 +22,36 @@ layout: ../../../layouts/MainLayout.astro
   </div>
 </div>
 
-
 ## What is this?
 
-It's a framework to build your own Discord bots on top Cloudflare Workers.
+It's a framework to build your own Discord blazingly fast bots on top Cloudflare Workers.
 
-## Start your first bot
+## Key Features
 
-The first thing you need to do is to start your project.
-For that we've set up a [template repository](https://github.com/discordcf/starter-bot-template) in Github
-with all the boilerplate.
+- Free hosting: Your bots can be deployed on a free subscription.
+- Serverless: No server has to be maintained.
+- Lightweight: The framework is small and really simple to understand.
+- Flexible: Even if you are abstracted away from the Discord API, you can still interact with it.
 
-If you use Github, you can [create a repository from this template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) through the UI.
-Or you can clone the repository to your local machine.
+Check out our detailed [How to harness Cloudflare Services](/en/learn/guides/how-to-harness-cloudflare-services) guide to build great bots. 🚀
 
-```bash
-git clone https://github.com/discordcf/starter-bot-template.git my-bot
-```
+<div class="flex gap-6 my-8">
+  <Card title="Learn discord.cf" description="Learn how to transform your ideas into amazing bots."/>
+  <Card title="API Reference" description="Look up all the information you need to use this framework."/>
+</div>
 
-### Prerequisites
+## Find out more
 
-There are a couple steps you need to fulfill before actually testing your bot:
+🔥 Look at all of our [tutorials and guides](/en/learn/tutorials/hello-bot).
 
-- Create a Discord account.
-- Create a Cloudflare account.
-- Download `@cloudflare/wrangler2`.
+✨ Learn [how it was built](/en/learn/appendix/history).
 
-#### Set up your Discord account
+⚡ Check out our [official repository](https://github.com/discordcf/discordcf).
 
-If you haven't registered to Discord, please do it [here](https://discord.com/register/).
-After you have your Discord account you should create your developer app.
-Go to your [developer profile](https://discord.com/developers/applications) and set up a new application.
+📚 Help to improve the [documentation](https://github.com/discordcf/discordcf.org).
 
-For a detailed guide read ["Set up your Discord Application"](/en/learn/appendix/set-up-your-discord-application).
+## Community
 
-#### Set up your Cloudflare account
+If you'd like to be part of the community, make sure you have these options to communicate with fellow developers.
 
-Go to [Cloudflare](https://dash.cloudflare.com/sign-up) and sign up on their site. Once you've signed up, you'll find a lot of
-services provided by Cloudflare but for this starting guide, we'll just focus on Cloudflare Workers.
-
-For a detailed guide read ["Set up your Cloudflare Account"](/en/learn/appendix/set-up-your-cloudflare-account).
-
-#### Get started with Wrangler
-
-The last requirement is getting started with `@cloudflare/wrangler2`.
-This command line tool will help you to easily deploy your bot on Cloudflare.
-The official documentation can be accessed in [here](https://developers.cloudflare.com/workers/wrangler/get-started/).
-
-For our detailed guide how to configure wrangler, read ["Hooking up wrangler"](/en/learn/guides/hooking-up-wrangler).
-
-#### Deep-dive into the code
-
-Check out the [guide](/en/learn/guides/set-up-your-bot) on how to set up your bot's code.
-
-### Use the example bot
-
-The bot that comes with the starter template is simply a bot that greets you when you execute the `/hello` slash command.
-
-<img class="self-center" src="/public/hello.png" alt="hello-command" width="75%"/>
-
-#### Inviting the bot to your server
-
-Assuming you've read the above guides and that you have already configured your Discord application and bot,
-Cloudflare will provide you with a link to your worker that should look like `https://rainy-jungle-498a.discordcf.workers.dev`.
-If you put that link in your browser, you'll be redirected to a site where you will be able to add the deployed bot to any server you
-have the required permissions; if you can't do that, talk to the owner of the server.
-
-<img class="self-center" src="/public/invite-bot.png" alt="hello-command" width="40%"/>
-
-When you do this, you'll see the bot added to your server.
-
-#### Install the commands
-
-> If you'd like to instantly see the commands on your server, don't forget to set up
-> the `GUILD_ID` environment variable in your deployment.
-
-After that, the only left thing to do is to install the bot commands.
-For that, every bot that is deployed with this framework exposes a `/setup` endpoint.
-You just need to perform a `GET` request with your browser, and it'll be installed.
-You should see a similar response to this:
-
-```json
-{
-  "hello": {
-    "id": "1046977140899450951",
-    "application_id": <your-application-id>,
-    "version": "1046977140899450952",
-    "default_permission": true,
-    "default_member_permissions": null,
-    "type": 1,
-    "name": "hello",
-    "name_localizations": null,
-    "description": "A simple hello message.",
-    "description_localizations": null,
-    "guild_id": <your-guild-id>
-  }
-}
-```
-
-Congrats! Now your `hello-bot` should be ready to respond.
+<CommunityButtons/>

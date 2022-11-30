@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import LeftSidebar from "../components/LeftSidebar.astro";
 import RightSidebar from "../components/RightSidebar";
+import Footer from "../components/Footer.astro";
 
 const url = Astro.url;
 const currentPage = url.pathname;
@@ -22,4 +23,5 @@ const { headings, content } = Astro.props;
     </article>
   </main>
   <RightSidebar {headings} client:load />
+  <Footer/>
 </Layout>

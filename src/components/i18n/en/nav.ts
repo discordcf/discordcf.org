@@ -7,6 +7,12 @@ export const learnTopics = [
     ],
   },
   {
+    header: "Tutorials",
+    items: [
+      { text: "Create your first bot", slug: "tutorials/hello-bot" },
+    ],
+  },
+  {
     header: "Guides",
     items: [
       { text: "Reply on command", slug: "guides/reply-on-command" },
@@ -26,20 +32,6 @@ export const learnTopics = [
     header: "Appendix",
     items: [
       { text: "Set up your Cloudflare account", slug: "appendix/set-up-your-cloudflare-account" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
       { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
     ],
   },

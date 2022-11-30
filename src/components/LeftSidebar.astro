@@ -17,22 +17,22 @@ const { currentPage } = Astro.props as Props;
     <ul class="flex flex-col gap-6">
       <SectionContent currentPage={currentPage} type="learn" topics={learnTopics} />
       <SectionContent currentPage={currentPage} type="reference" topics={referenceTopics} />
-      <div class="border-t-[0.5px]">
-        <li
-          class={`py-3 pr-6 pl-2 ${
-            "dsa" === "community" ? "dark:bg-[#343a46] dark:text-[#149ac9]" : ""
-          } rounded-r-lg  transition-opacity duration-1000`}
-        >
-          <a href={`/en/learn/community`}>Community</a>
-        </li>
-        <li
-          class={`py-3 pr-6 pl-2 ${
-            "asd" === "community" ? "dark:bg-[#343a46] dark:text-[#149ac9]" : ""
-          } rounded-r-lg  transition-opacity duration-1000`}
-        >
-          <a href={`/en/learn/community`}>Project</a>
-        </li>
-      </div>
+    </ul>
+    <ul class="border-t-[0.5px] border-t-[#7777777b] pt-2 mt-2">
+      <li
+        class={`py-3 pr-6 pl-2 ${
+          "dsa" === "community" ? "dark:bg-[#343a46] dark:text-[#149ac9]" : ""
+        } rounded-r-lg  transition-opacity duration-1000`}
+      >
+        <a href="/en/learn/getting-started#community">Community</a>
+      </li>
+      <li
+        class={`py-3 pr-6 pl-2 ${
+          "asd" === "community" ? "dark:bg-[#343a46] dark:text-[#149ac9]" : ""
+        } rounded-r-lg  transition-opacity duration-1000`}
+      >
+        <a href={`/en/learn/community`}>Project</a>
+      </li>
     </ul>
   </nav>
 </aside>
