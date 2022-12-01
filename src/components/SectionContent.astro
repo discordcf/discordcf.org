@@ -1,5 +1,6 @@
 ---
 import { IoIosArrowForward } from "react-icons/io/index.js";
+import { getCurrentSection, getCurrentSlug } from "./i18n/util";
 
 export interface Props {
   type?: string;
@@ -11,10 +12,6 @@ export interface Props {
 }
 
 const { type = "", currentPage, topics } = Astro.props;
-
-const getCurrentSection = (path: string) => path.match(/(?<=\/[a-z]{2}\/)[^/]*/g)![0];
-
-const getCurrentSlug = (path: string) => path.match(/(?<=(learn|reference)\/).*[^/]/g)![0];
 
 const currentSection = getCurrentSection(currentPage);
 const currentSlug = getCurrentSlug(currentPage);

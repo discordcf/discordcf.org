@@ -4,24 +4,47 @@ import Header from "../components/Header.astro";
 import LeftSidebar from "../components/LeftSidebar.astro";
 import RightSidebar from "../components/RightSidebar";
 import Footer from "../components/Footer.astro";
+import {
+  IoIosArrowBack,
+  IoIosArrowForward,
+} from "react-icons/io";
 
-const url = Astro.url;
+const url: URL = Astro.url;
 const currentPage = url.pathname;
 
 const { headings, content } = Astro.props;
+
+import { topics } from '../components/i18n/en/nav';
+import { flattenTopics } from "../components/i18n/util";
+
+console.log(flattenTopics(topics));
 ---
 
 <Layout title="Welcome | discord.cf">
   <Header />
   <LeftSidebar currentPage={currentPage} />
   <main
-    class="m-auto mt-[var(--theme-header-height)] flex justify-center p-6 [margin-inline-start:var(--theme-sidebar-width)] [margin-inline-end:var(--theme-rightsidebar-width)]"
+    class="m-auto mt-[var(--theme-header-height)] flex flex-col justify-center p-6 [margin-inline-start:var(--theme-sidebar-width)] [margin-inline-end:var(--theme-rightsidebar-width)]"
   >
     <article class="prose dark:prose-invert">
       <h1 id="overview">{content.title}</h1>
       <slot />
+      <div class="mt-24 flex w-full justify-between gap-48">
+        <a href="" class="flex flex-col py-2 px-16 hover:border-solid hover:border-[1px] border-orange-400 rounded-md no-underline [&>span]:hover:text-orange-300">
+          <div class="flex flex-row-reverse items-center gap-2">
+            PREVIOUS <IoIosArrowBack />
+          </div>
+          <span class="flex justify-end">Installation</span>
+        </a>
+        <a href="" class="flex flex-col py-2 px-16 hover:border-solid hover:border-[1px] border-orange-400 rounded-md no-underline [&>span]:hover:text-orange-300">
+          <div class="flex items-center gap-2 no-underline">
+            NEXT <IoIosArrowForward />
+          </div>
+          <span class="flex justify-end">Installation</span>
+        </a>
+      </div>
     </article>
   </main>
   <RightSidebar {headings} client:load />
-  <Footer/>
+  <Footer />
 </Layout>

@@ -12,7 +12,7 @@
   --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #5864e4 30%, #f48121 60%);
   --theme-discord-gradient: linear-gradient(45deg, rgb(var(--accent)), #444cec 30%, #4a4ea0 60%);
   --theme-discussions-gradient: linear-gradient(45deg, rgb(var(--accent)), #f7c056 0%, #d8c180 60%);
-  --theme-issues-gradient: linear-gradient(45deg, rgb(var(--accent)), #9c4cfc 30%, #2c1c40 60%);
+  --theme-issues-gradient: linear-gradient(45deg, rgb(var(--accent)), #9c4cfc 30%, #7e4bbd 60%);
 }
 
 html {
