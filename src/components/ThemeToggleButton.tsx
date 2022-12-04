@@ -5,34 +5,19 @@ const themes = ["light", "dark"];
 
 const ThemeToggleButton = (): JSX.Element => {
   const [isMounted, setIsMounted] = useState(false);
-  const [theme, setTheme] = useState(() => {
-    // If it's executed in the server, return undefined
-    if (typeof window === "undefined") {
-      return undefined;
-    }
-
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-    return "light";
-  });
+  const [theme, setTheme] = useState(localStorage.getItem("theme") ?? "light");
 
   const toggleTheme = (): void => {
-    const t = theme === "light" ? "dark" : "light";
-    localStorage.setItem("theme", t);
-    setTheme(t);
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   useEffect(() => {
-    const root = document.documentElement;
     if (theme === "light") {
-      root.classList.remove("dark");
+      document.documentElement.classList.remove("dark");
+      window.localStorage.setItem("theme", "light");
     } else {
-      root.classList.add("dark");
+      document.documentElement.classList.add("dark");
+      window.localStorage.setItem("theme", theme);
     }
   }, [theme]);
 

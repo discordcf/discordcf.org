@@ -2,18 +2,18 @@
 title: Getting Started
 layout: ../../../layouts/MainLayout.astro
 ---
+
 import CommunityButtons from "../../../components/CommunityButtons.astro";
 import Card from "../../../components/Card.astro";
 
-
 <div class="flex items-center justify-center gap-4">
-  <img src="/logo.png" alt="logo" width="13.5%"/>
+  <img src="/logo.png" alt="logo" width="13.5%" />
   <div
     id="#getting-started-logo"
-    class="self-center
-    font-bakbak text-8xl font-bold
+    class="[background-size:400%],
+    self-center font-bakbak text-8xl
+    font-bold
     [background-image:var(--accent-gradient)]
-    [background-size:400%],
     [background-position:0%]
     [background-clip:text]
     [-webkit-text-fill-color:transparent]"
@@ -35,9 +35,9 @@ It's a framework to build your own Discord blazingly fast bots on top Cloudflare
 
 Check out our detailed [How to harness Cloudflare Services](/en/learn/guides/how-to-harness-cloudflare-services) guide to build great bots. 🚀
 
-<div class="flex gap-6 my-8">
-  <Card title="Learn discord.cf" description="Learn how to transform your ideas into amazing bots."/>
-  <Card title="API Reference" description="Look up all the information you need to use this framework."/>
+<div class="my-8 flex gap-6">
+  <Card title="Learn discord.cf" description="Learn how to transform your ideas into amazing bots." />
+  <Card title="API Reference" description="Look up all the information you need to use this framework." />
 </div>
 
 ## Find out more
@@ -54,4 +54,4 @@ Check out our detailed [How to harness Cloudflare Services](/en/learn/guides/how
 
 If you'd like to be part of the community, make sure you have these options to communicate with fellow developers.
 
-<CommunityButtons/>
+<CommunityButtons />

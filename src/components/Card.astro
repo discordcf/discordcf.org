@@ -1,5 +1,5 @@
 ---
-import { IoArrowForward } from 'react-icons/io5/index.js';
+import { IoArrowForward } from "react-icons/io5/index.js";
 
 export interface Props {
   title: string;
@@ -16,9 +16,9 @@ const { title, description, goTo } = Astro.props as Props;
     <p>{description}</p>
   </div>
   <a href={goTo} class="no-underline">
-    <button class="flex items-center gap-4 justify-center rounded-md px-4 py-2 dark:bg-sky-400 dark:hover:bg-sky-600">
-        Read more
-        <IoArrowForward/>
+    <button class="flex items-center justify-center gap-4 rounded-md px-4 py-2 dark:bg-sky-400 dark:hover:bg-sky-600">
+      Read more
+      <IoArrowForward />
     </button>
   </a>
 </div>

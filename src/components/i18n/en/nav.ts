@@ -29,9 +29,7 @@ export const topics = [
   {
     header: "Discord API Types",
     section: "learn",
-    items: [
-      { text: "Types API", slug: "api-types/types" },
-    ],
+    items: [{ text: "Types API", slug: "api-types/types" }],
   },
   {
     header: "Appendix",
@@ -66,4 +64,4 @@ export const topics = [
     section: "reference",
     items: [{ text: "Context", slug: "Context" }],
   },
-]
+];

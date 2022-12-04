@@ -11,10 +11,8 @@ export interface Props {
 
 const { currentPage } = Astro.props as Props;
 
-
-const learnTopics = topics.filter(topic => topic.section === "learn");
-const referenceTopics = topics.filter(topic => topic.section === "reference");
-
+const learnTopics = topics.filter((topic) => topic.section === "learn");
+const referenceTopics = topics.filter((topic) => topic.section === "reference");
 ---
 
 <aside class="fixed top-24 left-0 mb-6 mt-2 flex w-[var(--theme-sidebar-width)] flex-col gap-4 border-b-slate-400 p-4">

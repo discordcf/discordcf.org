@@ -7,7 +7,7 @@ export const getCurrentSection = (path: string) => path.match(/(?<=\/[a-z]{2}\/)
 export const getCurrentSlug = (path: string) => path.match(/(?<=(learn|reference)\/).*[^/]/g)![0];
 
 export const flattenTopics = (topics: any) => {
-  let result = [];
+  const result = [];
 
   for (let i = 0; i < topics.length; i++) {
     for (let j = 0; j < topics[i].items.length; j++) {
@@ -17,15 +17,23 @@ export const flattenTopics = (topics: any) => {
   }
 
   return result;
-}
+};
 
 export function getPreviousNext(path: string, topics: any) {
   const flattenedTopics = flattenTopics(topics);
   const currentSlug = getCurrentSlug(path);
 
-  const currentTopicIndex = flattenedTopics.findIndex(t => t.slug === currentSlug);
-  const previous = currentTopicIndex > 0 && flattenedTopics[currentTopicIndex - 1].section === flattenedTopics[currentTopicIndex].section ? flattenedTopics[currentTopicIndex - 1] : undefined;
-  const next = currentTopicIndex < flattenedTopics.length - 1 && flattenedTopics[currentTopicIndex + 1].section === flattenedTopics[currentTopicIndex].section  ? flattenedTopics[currentTopicIndex + 1] : undefined;
+  const currentTopicIndex = flattenedTopics.findIndex((t) => t.slug === currentSlug);
+  const previous =
+    currentTopicIndex > 0 &&
+    flattenedTopics[currentTopicIndex - 1].section === flattenedTopics[currentTopicIndex].section
+      ? flattenedTopics[currentTopicIndex - 1]
+      : undefined;
+  const next =
+    currentTopicIndex < flattenedTopics.length - 1 &&
+    flattenedTopics[currentTopicIndex + 1].section === flattenedTopics[currentTopicIndex].section
+      ? flattenedTopics[currentTopicIndex + 1]
+      : undefined;
 
   return [previous, next];
 }

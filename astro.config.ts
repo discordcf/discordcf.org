@@ -8,11 +8,10 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 import mdx from "@astrojs/mdx";
-
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import { h } from "hastscript";
-
+import image from "@astrojs/image";
 const AnchorLinkIcon = h(
   "svg",
   {
@@ -33,6 +32,8 @@ const createSROnlyLabel = (text: string) => {
   node.properties!["is:raw"] = true;
   return node;
 };
+
+// https://astro.build/config
 
 // https://astro.build/config
 export default defineConfig({
@@ -76,6 +77,7 @@ export default defineConfig({
         ],
       ],
     }),
+    image(),
   ],
   output: "static",
 });
