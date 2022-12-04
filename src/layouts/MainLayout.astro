@@ -7,7 +7,7 @@ import Footer from "../components/Footer.astro";
 import {
   IoIosArrowBack,
   IoIosArrowForward,
-} from "react-icons/io";
+} from "react-icons/io/index.js";
 
 const url: URL = Astro.url;
 const currentPage = url.pathname;
@@ -15,9 +15,9 @@ const currentPage = url.pathname;
 const { headings, content } = Astro.props;
 
 import { topics } from '../components/i18n/en/nav';
-import { flattenTopics } from "../components/i18n/util";
+import { getPreviousNext } from "../components/i18n/util";
 
-console.log(flattenTopics(topics));
+const [previous, next] = getPreviousNext(currentPage, topics);
 ---
 
 <Layout title="Welcome | discord.cf">
@@ -29,19 +29,19 @@ console.log(flattenTopics(topics));
     <article class="prose dark:prose-invert">
       <h1 id="overview">{content.title}</h1>
       <slot />
-      <div class="mt-24 flex w-full justify-between gap-48">
-        <a href="" class="flex flex-col py-2 px-16 hover:border-solid hover:border-[1px] border-orange-400 rounded-md no-underline [&>span]:hover:text-orange-300">
+      <div class="mt-24 grid grid-cols-2 grid-flow-col">
+        {previous && (<a href={`/en/${previous.section}/${previous.slug}`} class="flex flex-col justify-self-start col-span-1 py-2 px-16 hover:border-solid hover:border-[1px] border-orange-400 rounded-md no-underline [&>span]:hover:text-orange-300">
           <div class="flex flex-row-reverse items-center gap-2">
             PREVIOUS <IoIosArrowBack />
           </div>
-          <span class="flex justify-end">Installation</span>
-        </a>
-        <a href="" class="flex flex-col py-2 px-16 hover:border-solid hover:border-[1px] border-orange-400 rounded-md no-underline [&>span]:hover:text-orange-300">
+          <span class="flex justify-end">{previous.text}</span>
+        </a>)}
+        {next && (<a href={`/en/${next.section}/${next.slug}`} class="flex flex-col py-2 px-16 justify-self-end col-span-2 hover:border-solid hover:border-[1px] border-orange-400 rounded-md no-underline [&>span]:hover:text-orange-300">
           <div class="flex items-center gap-2 no-underline">
             NEXT <IoIosArrowForward />
           </div>
-          <span class="flex justify-end">Installation</span>
-        </a>
+          <span class="flex justify-start">{next.text}</span>
+        </a>)}
       </div>
     </article>
   </main>

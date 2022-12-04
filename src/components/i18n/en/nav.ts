@@ -12,6 +12,7 @@ export const topics = [
     section: "learn",
     items: [
       { text: "Create your first bot", slug: "tutorials/hello-bot" },
+      { text: "Organize 5v5 matches", slug: "tutorials/mixurri" },
     ],
   },
   {
@@ -21,6 +22,7 @@ export const topics = [
       { text: "Reply on command", slug: "guides/reply-on-command" },
       { text: "Defer messages", slug: "guides/defer-messages" },
       { text: "Send embeds", slug: "guides/send-embeds" },
+      { text: "Harness Cloudflare Services", slug: "guides/harness-cloudflare-services" },
       { text: "JavaScript", slug: "guides/javascript" },
     ],
   },
@@ -28,8 +30,7 @@ export const topics = [
     header: "Discord API Types",
     section: "learn",
     items: [
-      { text: "How to use types", slug: "api-types/how-to" },
-      { text: "Most common types", slug: "api-types/most-commmon" },
+      { text: "Types API", slug: "api-types/types" },
     ],
   },
   {

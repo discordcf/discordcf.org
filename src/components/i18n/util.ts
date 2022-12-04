@@ -10,13 +10,22 @@ export const flattenTopics = (topics: any) => {
   let result = [];
 
   for (let i = 0; i < topics.length; i++) {
+    for (let j = 0; j < topics[i].items.length; j++) {
+      topics[i].items[j].section = topics[i].section;
+    }
     result.push(...topics[i].items);
   }
 
   return result;
 }
 
-export function getCurrentPrevious(path: string, topics: any) {
+export function getPreviousNext(path: string, topics: any) {
   const flattenedTopics = flattenTopics(topics);
-  // TODO: complete
+  const currentSlug = getCurrentSlug(path);
+
+  const currentTopicIndex = flattenedTopics.findIndex(t => t.slug === currentSlug);
+  const previous = currentTopicIndex > 0 && flattenedTopics[currentTopicIndex - 1].section === flattenedTopics[currentTopicIndex].section ? flattenedTopics[currentTopicIndex - 1] : undefined;
+  const next = currentTopicIndex < flattenedTopics.length - 1 && flattenedTopics[currentTopicIndex + 1].section === flattenedTopics[currentTopicIndex].section  ? flattenedTopics[currentTopicIndex + 1] : undefined;
+
+  return [previous, next];
 }
