@@ -28,7 +28,7 @@ module.exports = {
   },
   rules: {
     "multiline-ternary": "off",
-    "quotes": ["error", "double"],
+    quotes: ["error", "double"],
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/comma-dangle": "off",
