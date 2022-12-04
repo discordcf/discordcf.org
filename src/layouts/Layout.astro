@@ -1,5 +1,6 @@
 ---
 import "@fontsource/bakbak-one";
+import "../../public/styles/base.css";
 
 export interface Props {
   title: string;
@@ -14,7 +15,6 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/png" href="/logo.png" />
-    <link rel="stylesheet" href="/styles/base.css" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
