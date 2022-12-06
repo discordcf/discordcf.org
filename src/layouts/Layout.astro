@@ -1,6 +1,5 @@
 ---
 import "@fontsource/bakbak-one";
-import "../../public/styles/base.css";
 
 export interface Props {
   title: string;
@@ -10,33 +9,24 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<script is:inline>
-const theme = () => {
-  if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-    return localStorage.getItem("theme")
-  }
-  if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    return "dark"
-  }
-  return "light"
-}
-
-if (theme === "light") {
-  document.documentElement.classList.remove("dark")
-} else {
-  document.documentElement.classList.add("dark")
-}
-window.localStorage.setItem("theme", theme())
-</script>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <title>{title}</title>
+    <link rel="stylesheet" href="/public/styles/base.css" />
+    <script is:inline>
+      const theme = localStorage.getItem("theme");
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
-  <body class="bg-amber-100 text-[#ebecf0] dark:bg-[#24242c]">
+  <body class="bg-[#f2f1e8] text-black dark:bg-[#1d1d33] dark:text-[#ebecf0]">
     <slot />
   </body>
 </html>

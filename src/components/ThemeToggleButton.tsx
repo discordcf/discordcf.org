@@ -14,17 +14,17 @@ const ThemeToggleButton = (): JSX.Element => {
   useEffect(() => {
     if (theme === "light") {
       document.documentElement.classList.remove("dark");
-      window.localStorage.setItem("theme", "light");
     } else {
       document.documentElement.classList.add("dark");
-      window.localStorage.setItem("theme", theme);
     }
+
+    window.localStorage.setItem("theme", theme);
   }, [theme]);
 
   useEffect(() => setIsMounted(true), []);
 
   return isMounted ? (
-    <div className="ml-auto mr-6 inline-flex items-center rounded-3xl bg-orange-300 p-[1px] dark:bg-[#149ac9]">
+    <div className="ml-auto mr-6 inline-flex items-center rounded-3xl bg-[#d0d0fea4] p-[1px] dark:bg-[var(--dark-bg-accent)]">
       {themes.map((t) => {
         const checked = t === theme;
 

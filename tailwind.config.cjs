@@ -4,9 +4,12 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      colors: {
+        "dark-accent": "#d34ad8",
+      },
       fontFamily: {
         bakbak: ["Bakbak One", "cursive"],
-        "source-code-pro": ["Source Code Pro", "Menlo", "monospace"],
+        "source-code-pro": ["Source Code Pro", "Menlo", "monospace"]
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -54,7 +57,7 @@ module.exports = {
               border: "2px",
             },
             "p > a": {
-              color: "#149ac9",
+              color: theme("colors.dark-accent"),
               textUnderlineOffset: "0.25rem",
               textDecoration: "none",
               "&:hover": {
@@ -81,6 +84,9 @@ module.exports = {
               padding: "0.1rem 1rem",
               fontStyle: "normal",
               fontWeight: "300",
+              p: {
+                color: '#fff',
+              },
               "p::before": {
                 content: '""',
               },

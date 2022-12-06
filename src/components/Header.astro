@@ -4,7 +4,7 @@ import { Image } from "@astrojs/image/components";
 ---
 
 <header
-  class="fixed top-0 m-0 grid h-[var(--theme-header-height)] w-full grid-cols-2 items-center justify-center gap-3 bg-[#eee7f4] p-4 dark:bg-[#404454]"
+  class="fixed top-0 m-0 grid h-[var(--theme-header-height)] w-full grid-cols-2 items-center justify-center gap-3 p-4"
 >
   <a class="justify-self-start" href="/">
     <div class="flex items-center gap-2">
@@ -13,8 +13,8 @@ import { Image } from "@astrojs/image/components";
         <span class="font-bakbak">d.cf</span>
         <span class="font-bakbak text-orange-400">Docs</span>
       </h1>
-      <span class="mt-1 rounded-lg py-1 px-2 text-xs dark:bg-[#24242c]">BETA</span>
+      <span class="mt-1 rounded-lg py-1 px-2 text-xs text-[#8e8eb0] font-medium dark:text-[var(--dark-accent)] bg-[#d0d0fe95] dark:bg-[#24242c]">BETA</span>
     </div>
   </a>
-  <ThemeToggleButton client:visible/>
+  <ThemeToggleButton client:load/>
 </header>

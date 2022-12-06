@@ -12,7 +12,7 @@ const RightSidebar = ({ headings }: Props): JSX.Element => {
 
   const onThisPageId = "on-this-page-heading";
 
-  const activeTheme = "bg-[#149ac9] text-white";
+  const activeTheme = "bg-[#d0d0fea4] text-white dark:bg-[#782a7b] font-semibold";
 
   useEffect(() => {
     if (topics.current === null || topics.current === undefined) return;
@@ -49,13 +49,13 @@ const RightSidebar = ({ headings }: Props): JSX.Element => {
           <h2 id={onThisPageId} className="mb-2 pl-2 font-bold">
             On this page
           </h2>
-          <ul ref={topics} className="max-h-[100vh] overflow-auto text-slate-300">
+          <ul ref={topics} className="max-h-[100vh] overflow-auto dark:text-slate-300">
             {headings
               .filter(({ depth }) => depth > 1 && depth < 4)
               .map((heading: { text: string; slug: string }) => (
                 <li
                   key={heading.slug}
-                  className={`mr-3 border-l-4 border-l-[#4a4c4d7c] py-1 pl-2 hover:border-l-4 hover:border-l-orange-400 ${
+                  className={`mr-3 border-l-4 dark:border-l-[#4a4c4d7c] border-l-[#d0d0fe] py-1 pl-2 hover:border-l-4 hover:border-l-[#ffb347] ${
                     currentId === heading.slug ? activeTheme : ""
                   }`}
                 >
