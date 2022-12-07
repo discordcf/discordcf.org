@@ -8,8 +8,8 @@ module.exports = {
         "dark-accent": "#d34ad8",
       },
       fontFamily: {
-        bakbak: ["Bakbak One", "cursive"],
-        "source-code-pro": ["Source Code Pro", "Menlo", "monospace"]
+        bakbak: "'Bakbak One', cursive",
+        "source-code-pro": "'Source Code Pro', Menlo, monospace",
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -55,6 +55,7 @@ module.exports = {
             pre: {
               borderColor: "#fff",
               border: "2px",
+              fontFamily: theme("fontFamily.source-code-pro"),
             },
             "p > a": {
               color: theme("colors.dark-accent"),
@@ -76,7 +77,7 @@ module.exports = {
               borderRadius: "4px",
               fontWeight: "400",
               fontSize: "0.85em",
-              fontFamily: String(theme("fontFamily.source-code-pro")),
+              fontFamily: theme("fontFamily.source-code-pro"),
             },
             blockquote: {
               backgroundColor: "#105e79",

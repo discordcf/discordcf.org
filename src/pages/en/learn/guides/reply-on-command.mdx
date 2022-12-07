@@ -7,6 +7,8 @@ Replying on a command is part of the foundations to build bots in general.
 When a user in your Discord server executes a slash command for a given bot, Discord will send a request
 to the interaction endpoint you've configured in your Discord application.
 
+## Quick Intro
+
 There are quite a few types of interactions that we're interested in.
 Check them out in the [official Discord docuementation](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object-interaction-type).
 
@@ -20,6 +22,8 @@ guide.
 
 One important thing before we dive into the code is that, since Cloudflare Workers is a serverless stack, when Discord initiates a short-lived connection, ideally you should quickly respond to the request, and you can no longer process anything after you've sent the response.
 However, there are a few alternatives to execute heavier tasks, e.g., [deferring tasks](/en/learn/guides/defer-messages).
+
+## Code
 
 Let's look at some snippet.
 
