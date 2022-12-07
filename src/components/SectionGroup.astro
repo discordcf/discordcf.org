@@ -1,17 +1,17 @@
 ---
+import { getCurrentSection } from '../util/util';
+
 export interface Props {
   currentPage: string;
 }
 
 const { currentPage } = Astro.props;
 
-const currentSection = (path: string) => path.match(/(?<=\/[a-z]{2}\/)[^/]*/g)![0];
-
-const activeTab = currentSection(currentPage);
+const activeSection = getCurrentSection(currentPage);
 
 const sections = [
-  { name: "Learn", href: "/en/learn/getting-started/" },
-  { name: "Reference", href: "/en/reference/createApplicationCommandHandler" },
+  { name: "Learn", href: "/learn/getting-started/" },
+  { name: "Reference", href: "/reference/createApplicationCommandHandler" },
 ];
 
 const active = "border-b-[2px] dark:border-b-[var(--dark-accent)] border-b-[#4e4c4b] text-[#4e4c4b] dark:text-[var(--dark-accent)]";
@@ -24,7 +24,7 @@ const active = "border-b-[2px] dark:border-b-[var(--dark-accent)] border-b-[#4e4
         href={section.href}
         class={
           "flex w-full items-center justify-center py-2 px-6  " +
-          (activeTab === section.name.toLowerCase() ? active : "border-b-[1px] border-b-[#4e4c4b]")
+          (activeSection === section.name.toLowerCase() ? active : "border-b-[1px] border-b-[#4e4c4b]")
         }
       >
         {section.name}

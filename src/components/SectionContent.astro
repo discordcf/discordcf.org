@@ -1,6 +1,6 @@
 ---
 import { IoIosArrowForward } from "react-icons/io/index.js";
-import { getCurrentSection, getCurrentSlug } from "./i18n/util";
+import { getCurrentSection, getCurrentSlug } from "../util/util";
 
 export interface Props {
   type?: string;
@@ -34,7 +34,7 @@ const currentSlug = getCurrentSlug(currentPage);
                     currentSlug === item.slug ? "bg-[#d0d0fea4] text-[#4e4c4b] font-medium dark:bg-[#272b34] dark:text-[var(--dark-accent)]" : ""
                   } rounded-r-lg transition-opacity duration-1000`}
                 >
-                  <a href={`/en/${type}/${item.slug}`}>{item.text}</a>
+                  <a href={`/${type}/${item.slug}`}>{item.text}</a>
                 </li>
               ))}
             </ul>

@@ -1,9 +1,8 @@
 ---
 import SectionContent from "./SectionContent.astro";
 import SectionGroup from "./SectionGroup.astro";
-
-import { topics } from "./i18n/en/nav";
 import { FiExternalLink } from "react-icons/fi/index.js";
+import { topics } from "../util/nav";
 
 export interface Props {
   currentPage: string;
@@ -11,8 +10,8 @@ export interface Props {
 
 const { currentPage } = Astro.props as Props;
 
-const learnTopics = topics.filter((topic) => topic.section === "learn");
-const referenceTopics = topics.filter((topic) => topic.section === "reference");
+const learnTopics = topics.filter((topic: any) => topic.section === "learn");
+const referenceTopics = topics.filter((topic: any) => topic.section === "reference");
 ---
 
 <aside class="fixed top-24 left-0 mb-6 flex w-[var(--theme-sidebar-width)] flex-col gap-4 border-b-slate-400 p-4">
@@ -22,9 +21,9 @@ const referenceTopics = topics.filter((topic) => topic.section === "reference");
       <SectionContent currentPage={currentPage} type="learn" topics={learnTopics} />
       <SectionContent currentPage={currentPage} type="reference" topics={referenceTopics} />
     </ul>
-    <ul class="mt-2 border-t-[0.5px] dark:border-t-[#7777777b] pt-2">
+    <ul class="mt-2 border-t-[0.5px] pt-2 dark:border-t-[#7777777b]">
       <li class="py-3 pr-6 pl-2">
-        <a href="/en/learn/getting-started#community">Community</a>
+        <a href="/learn/getting-started#community">Community</a>
       </li>
       <li class="py-3 pr-6 pl-2">
         <a class="flex items-center gap-2" target="_blank" href="https://github.com/discordcf/discordcf"

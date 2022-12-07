@@ -1,6 +1,6 @@
 ---
 title: Reply on command
-layout: ../../../../layouts/MainLayout.astro
+layout: ../../../layouts/MainLayout.astro
 ---
 
 Replying on a command is part of the foundations to build bots in general.
@@ -21,7 +21,7 @@ guide.
 > For more info on how bots can receieve events, check out this [link](https://discord.com/developers/docs/interactions/receiving-and-responding#interaction-object).
 
 One important thing before we dive into the code is that, since Cloudflare Workers is a serverless stack, when Discord initiates a short-lived connection, ideally you should quickly respond to the request, and you can no longer process anything after you've sent the response.
-However, there are a few alternatives to execute heavier tasks, e.g., [deferring tasks](/en/learn/guides/defer-messages).
+However, there are a few alternatives to execute heavier tasks, e.g., [deferring tasks](/learn/guides/defer-messages).
 
 ## Code
 
@@ -56,6 +56,6 @@ A command is a simple object of type `Command`.
 The `command` key is an object that, in this example, has the name of the command as well as some description.
 Additionally, you must define a command handler that must comply with that signature.
 
-[`Context`](/en/reference/Context) is essentially the interface you will be working with you to perform various actions against the Discord API.
+[`Context`](/reference/Context) is essentially the interface you will be working with you to perform various actions against the Discord API.
 Also, `APIInteractionResponse` is the default response you need to send back to Discord. Whenever you return this response, the connection will be terminated, and you won't be able to perform any other task. So, in other words, the `return` statement is the termination mark.
 Pay attention to the type of the response, there a couple more types that we'll look at in other guides.

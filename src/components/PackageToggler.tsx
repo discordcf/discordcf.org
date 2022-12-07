@@ -32,7 +32,7 @@ const PackageToggler = (): JSX.Element => {
       </div>
       {managers.map((m) => (
         <span className={`${packageManager === m.name ? "" : "hidden"}`}>
-          <pre className="my-4">
+          <pre className="my-4 bg-[#263238]">
             <code className="flex flex-col">
               <span className="text-[#546e7a]"># install discordcf in your project</span>
               {m.command}
