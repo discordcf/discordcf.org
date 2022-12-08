@@ -5,7 +5,6 @@ import RightSidebar from "../components/RightSidebar";
 import Footer from "../components/Footer.astro";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io/index.js";
 
-
 import { getPreviousNext } from "../util/util";
 import LeftSidebar from "../components/LeftSidebar.astro";
 import { topics } from "../util/nav";
@@ -24,7 +23,9 @@ const [previous, next] = getPreviousNext(currentPage, topics);
   <main
     class="m-auto mt-[var(--theme-header-height)] flex flex-col justify-center p-6 [margin-inline-start:var(--theme-sidebar-width)] [margin-inline-end:var(--theme-rightsidebar-width)]"
   >
-    <article class="prose dark:prose-invert prose-code:[&>p]:bg-slate-300 dark:prose-code:[&>p]:bg-[#ffffff16] max-w-3xl">
+    <article
+      class="prose max-w-3xl dark:prose-invert prose-code:[&>p]:bg-slate-300 dark:prose-code:[&>p]:bg-[#ffffff16] prose-code:[&>ul>li]:bg-slate-300 dark:prose-code:[&>ul>li]:bg-[#ffffff16]"
+    >
       <h1 id="overview">{content.title}</h1>
       <slot />
       <div class="mt-24 grid grid-flow-col grid-cols-2">
@@ -32,7 +33,7 @@ const [previous, next] = getPreviousNext(currentPage, topics);
           previous && (
             <a
               href={`/${previous.section}/${previous.slug}`}
-              class="col-span-1 flex flex-col justify-self-start rounded-md border-[#d0d0fe] dark:border-orange-400 py-2 px-16 no-underline hover:border-[1px] hover:border-solid [&>span]:hover:text-[#d0d0fe] dark:[&>span]:hover:text-orange-300"
+              class="col-span-1 flex flex-col justify-self-start rounded-md border-[#d0d0fe] py-2 px-16 no-underline hover:border-[1px] hover:border-solid dark:border-orange-400 [&>span]:hover:text-[#d0d0fe] dark:[&>span]:hover:text-orange-300"
             >
               <div class="flex flex-row-reverse items-center gap-2">
                 PREVIOUS <IoIosArrowBack />
@@ -45,7 +46,7 @@ const [previous, next] = getPreviousNext(currentPage, topics);
           next && (
             <a
               href={`/${next.section}/${next.slug}`}
-              class="col-span-2 flex flex-col justify-self-end rounded-md border-[#d0d0fe] dark:border-orange-400 py-2 px-16 no-underline hover:border-[1px] hover:border-solid [&>span]:hover:text-[#d0d0fe] dark:[&>span]:hover:text-orange-300"
+              class="col-span-2 flex flex-col justify-self-end rounded-md border-[#d0d0fe] py-2 px-16 no-underline hover:border-[1px] hover:border-solid dark:border-orange-400 [&>span]:hover:text-[#d0d0fe] dark:[&>span]:hover:text-orange-300"
             >
               <div class="flex items-center gap-2 no-underline">
                 NEXT <IoIosArrowForward />

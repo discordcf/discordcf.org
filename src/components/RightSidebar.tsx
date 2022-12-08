@@ -55,7 +55,7 @@ const RightSidebar = ({ headings }: Props): JSX.Element => {
               .map((heading: { text: string; slug: string }) => (
                 <li
                   key={heading.slug}
-                  className={`mr-3 border-l-4 dark:border-l-[#4a4c4d7c] border-l-[#d0d0fe] py-1 pl-2 hover:border-l-4 hover:border-l-[#ffb347] ${
+                  className={`mr-3 border-l-4 border-l-[#d0d0fe] py-1 pl-2 hover:border-l-4 hover:border-l-[#ffb347] dark:border-l-[#4a4c4d7c] ${
                     currentId === heading.slug ? activeTheme : ""
                   }`}
                 >

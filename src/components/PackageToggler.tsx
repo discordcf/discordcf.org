@@ -15,7 +15,7 @@ const PackageToggler = (): JSX.Element => {
 
   return (
     <>
-      <div className="flex gap-2 border-b-2 mt-4 border-[#d0d0fea4] pb-2 dark:border-[var(--dark-accent)]">
+      <div className="mt-4 flex gap-2 border-b-2 border-[#d0d0fea4] pb-2 dark:border-[var(--dark-accent)]">
         {managers.map((m) => (
           <button
             className={`rounded-md py-1 px-6 ${

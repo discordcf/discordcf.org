@@ -2,3 +2,52 @@
 title: Command
 layout: ../../layouts/MainLayout.astro
 ---
+
+`Command` is an interface that will allow you to properly define your command objects.
+
+```typescript
+interface Command {
+  command: PartialWithRequiredAPIApplicationCommand;
+  handler: InteractionHandler;
+}
+```
+
+## Usage
+
+When you define a command, your command should be an object of type `Command`.
+
+```typescript
+import { Command, InteractionResponseType, Context, APIInteractionResponse } from '@discordcf/framework';
+
+export const helloCommand: Command = {
+  command: {
+    name: 'hello',
+    description: 'A simple hello message',
+  },
+  handler: async (ctx: Context): Promise<APIInteractionResponse> => {
+    const userId = ctx.interaction.structure.member?.user.id;
+    return {
+      type: InteractionResponseType.ChannelMessageWithSource,
+      data: {
+        content: `Hello, <@${userId}>`,
+        allowed_mentions: {
+          users: [userId || ''],
+        },
+      },
+    };
+  },
+};
+
+export default helloCommand;
+```
+
+## Reference
+
+<div class="m-0 flex justify-start">
+  <span class="rounded-md bg-slate-300 py-2 px-4 font-source-code-pro dark:bg-[#ffffff16]">Command</span>
+</div>
+
+### Properties
+
+- `command`: is another object of type `PartialWithRequiredAPIApplicationCommand`.
+- `handler`: is another object of type `InteractionHandler`.

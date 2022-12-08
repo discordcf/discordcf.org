@@ -56,8 +56,9 @@ module.exports = {
               borderColor: "#fff",
               border: "2px",
               fontFamily: theme("fontFamily.source-code-pro"),
+              fontSize: "1em",
             },
-            "p > a": {
+            "p > a, li > a": {
               color: theme("colors.dark-accent"),
               textUnderlineOffset: "0.25rem",
               textDecoration: "none",
@@ -86,7 +87,7 @@ module.exports = {
               fontStyle: "normal",
               fontWeight: "300",
               p: {
-                color: '#fff',
+                color: "#fff",
               },
               "p::before": {
                 content: '""',

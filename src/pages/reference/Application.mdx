@@ -2,3 +2,66 @@
 title: Application
 layout: ../../layouts/MainLayout.astro
 ---
+
+`Application` is an interface that will allow you to properly define the object that you need to initialize your bot.
+
+```typescript
+interface Application {
+  applicationId: string;
+  botToken: string;
+  publicKey: string;
+  guildId?: string;
+  commands: Command[];
+  components?: MessageComponent[];
+  permissions: Permissions;
+}
+```
+
+## Usage
+
+When you create your `index.{ts,js}` file you should define an `application` variable that has all the information
+needed. Keep in mind the `guildId` is optional, and if you don't set it, you will install the commands globally;
+means the commands will get updated in 1 hour.
+
+```typescript
+import { createApplicationCommandHandler, Permissions } from "@discordcf/framework";
+import yourCommand from "./cmd/your-command";
+import yourComponent from "./components/your-component";
+
+const application: Application = {
+  applicationId: env.APPLICATION_ID,
+  publicKey: env.PUBLIC_KEY,
+  botToken: env.BOT_TOKEN,
+  commands: [yourCommand],
+  components: [yourComponent],
+  guildId: env.GUILD_ID,
+  permissions: new Permissions([
+    "AddReactions",
+    "AttachFiles",
+    "EmbedLinks",
+    "SendMessages",
+    "SendTTSMessages",
+    "MentionEveryone",
+    "UseExternalEmojis",
+    "UseExternalStickers",
+  ]),
+};
+
+const applicationCommandHandler = createApplicationCommandHandler(application, env, context);
+```
+
+## Reference
+
+<div class="m-0 flex justify-start">
+  <span class="rounded-md bg-slate-300 py-2 px-4 font-source-code-pro dark:bg-[#ffffff16]">Application</span>
+</div>
+
+### Properties
+
+- `applicationId`: the application identifier you get from your Discord application.
+- `publicKey`: the public key you get from your Discord application.
+- `botToken`: the token associated to the bot of your Discord application.
+- `commands`: an array of `Command`.
+- `components?`: an array of `MessageComponent`.
+- `guildId?`: the guild identifier you get from your server.
+- `permissions`: a `Permission` object with all the permissions for the application.

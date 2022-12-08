@@ -13,8 +13,11 @@ import { Image } from "@astrojs/image/components";
         <span class="font-bakbak">d.cf</span>
         <span class="font-bakbak text-orange-400">Docs</span>
       </h1>
-      <span class="mt-1 rounded-lg py-1 px-2 text-xs text-[#8e8eb0] font-medium dark:text-[var(--dark-accent)] bg-[#d0d0fe95] dark:bg-[#24242c]">BETA</span>
+      <span
+        class="mt-1 rounded-lg bg-[#d0d0fe95] py-1 px-2 text-xs font-medium text-[#8e8eb0] dark:bg-[#24242c] dark:text-[var(--dark-accent)]"
+        >BETA</span
+      >
     </div>
   </a>
-  <ThemeToggleButton client:load/>
+  <ThemeToggleButton client:load />
 </header>

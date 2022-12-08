@@ -1,0 +1,64 @@
+---
+title: Interaction
+layout: ../../layouts/MainLayout.astro
+---
+
+`Interaction` is a class that represents any sort of interaction.
+
+```typescript
+const interaction: Interaction = ctx.interaction;
+```
+
+## Usage
+
+You should never create an `Interaction` object yourself as `Context` already creates it for you upon receiving
+an interaction from Discord.
+
+Generally used through `ctx`.
+
+```typescript
+const interactionStructure: APIInteraction = ctx.interaction.structure;
+```
+
+## Reference
+
+<div class="m-0 flex justify-start">
+  <span class="rounded-md bg-slate-300 py-2 px-4 font-source-code-pro dark:bg-[#ffffff16]">
+    Interaction
+  </span>
+</div>
+
+### Methods
+
+`constructor(interaction: APIInteraction, applicationId: string)`
+
+Used to construct the `Interaction` object. An `APIInteraction` object and the `applicationId` must be passed to the constructor.
+
+`type(): InteractionType`
+
+Returns an `InteractionType` associated to `Interaction`.
+
+`structure(): APIInteraction`
+
+Returns the `APIInteraction` associated to the raw object Discord API sends.
+
+`reply(message: APIInteractionResponse): Promise<Response>`
+
+Replies to a received interaciton. The `message` must be the content that you want to display as a message.
+
+`get(): Promise<Response>`
+
+Returns the original interaction response.
+
+`edit(message: RESTPatchAPIInteractionOriginalResponseJSONBody): Promise<Response>`
+
+Edits the original interaction response.
+
+`delete(): Promise<Response>`
+
+Deletes the original interaction response.
+
+### Properties
+
+- `interaction`: is the raw interaction sent by Discord represented by the `APIInteraction` type.
+- `applicationId`: the application identifier from your bot.

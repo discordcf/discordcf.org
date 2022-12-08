@@ -10,10 +10,7 @@ export const topics = [
   {
     header: "Tutorials",
     section: "learn",
-    items: [
-      { text: "Create your first bot", slug: "tutorials/hello-bot" },
-      { text: "Organize 5v5 matches", slug: "tutorials/mixurri" },
-    ],
+    items: [{ text: "Create your first bot", slug: "tutorials/hello-bot" }],
   },
   {
     header: "Guides",
@@ -23,7 +20,7 @@ export const topics = [
       { text: "Defer messages", slug: "guides/defer-messages" },
       { text: "Send embeds", slug: "guides/send-embeds" },
       { text: "Harness Cloudflare Services", slug: "guides/harness-cloudflare-services" },
-      { text: "JavaScript", slug: "guides/javascript" },
+      { text: "TypeScript", slug: "guides/typescript" },
     ],
   },
   {
@@ -48,6 +45,7 @@ export const topics = [
       { text: "ApplicationCommandHandler", slug: "ApplicationCommandHandler" },
       { text: "Command", slug: "Command" },
       { text: "MessageComponent", slug: "MessageComponent" },
+      { text: "Permissions", slug: "Permissions" },
     ],
   },
   {
@@ -56,7 +54,7 @@ export const topics = [
     items: [
       { text: "InteractionHandler", slug: "InteractionHandler" },
       { text: "InteractionResponse", slug: "InteractionResponse" },
-      { text: "InteractionResponse", slug: "InteractionResponse" },
+      { text: "Interaction", slug: "Interaction" },
     ],
   },
   {

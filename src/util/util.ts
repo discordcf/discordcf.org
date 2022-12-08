@@ -23,7 +23,7 @@ export function getPreviousNext(path: string, topics: any): any {
   const flattenedTopics = flattenTopics(topics);
   const currentSlug = getCurrentSlug(path);
 
-  const currentTopicIndex = flattenedTopics.findIndex(t => t.slug === currentSlug);
+  const currentTopicIndex = flattenedTopics.findIndex((t) => t.slug === currentSlug);
   const previous =
     currentTopicIndex > 0 &&
     flattenedTopics[currentTopicIndex - 1].section === flattenedTopics[currentTopicIndex].section
