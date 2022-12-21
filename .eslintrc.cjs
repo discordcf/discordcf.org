@@ -13,7 +13,6 @@ module.exports = {
         extraFileExtensions: [".astro"],
       },
       rules: {
-        semi: ["error", "always"],
         "comma-dangle": ["error", "only-multiline"],
         quotes: ["error", "double"],
         "space-before-function-paren": "off",
@@ -27,6 +26,7 @@ module.exports = {
     project: "tsconfig.json",
   },
   rules: {
+    semi: ["error", "always"],
     "eol-last": "off",
     "no-trailing-spaces": "off",
     "no-multiple-empty-lines": ["error", { max: 2 }],
