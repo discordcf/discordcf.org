@@ -5,6 +5,10 @@ on: [push]
 jobs:
   deployment:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Deploy to Cloudflare Pages
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -16,8 +20,10 @@ jobs:
         run: yarn run build
 
       - name: Publish
-        uses: cloudflare/wrangler-action@2.0.0
+        uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
-          command: pages publish --project-name=beta-discordcf-org ./dist
+          projectName: beta-discordcf-org
+          directory: ./dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
