@@ -1,23 +1,21 @@
 name: Deploy environments
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment: production
+    name: Deployment
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+      - name: Build
+      - run: yarn run build
+
+      - name: Publish
+        uses: cloudflare/wrangler-action@2.0.0
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN }}
-          accountId: 590d5e6a4382a813b506fa45ca1609e0
-          projectName: discordcf-org
-          directory: ./
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages publish --project-name=beta-discordcf-org ./dist
