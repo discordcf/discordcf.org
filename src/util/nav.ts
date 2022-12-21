@@ -19,7 +19,6 @@ export const topics = [
       { text: "Reply on command", slug: "guides/reply-on-command" },
       { text: "Defer messages", slug: "guides/defer-messages" },
       { text: "Send embeds", slug: "guides/send-embeds" },
-      { text: "Harness Cloudflare Services", slug: "guides/harness-cloudflare-services" },
       { text: "TypeScript", slug: "guides/typescript" },
     ],
   },
@@ -32,8 +31,7 @@ export const topics = [
     header: "Appendix",
     section: "learn",
     items: [
-      { text: "Set up your Cloudflare account", slug: "appendix/set-up-your-cloudflare-account" },
-      { text: "Set up your Discord account", slug: "appendix/set-up-your-discord-application" },
+      { text: "Hooking up Wrangler", slug: "appendix/hooking-up-wrangler" },
     ],
   },
   {
@@ -52,8 +50,6 @@ export const topics = [
     header: "Interaction API",
     section: "reference",
     items: [
-      { text: "InteractionHandler", slug: "InteractionHandler" },
-      { text: "InteractionResponse", slug: "InteractionResponse" },
       { text: "Interaction", slug: "Interaction" },
     ],
   },

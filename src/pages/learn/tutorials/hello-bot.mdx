@@ -28,20 +28,21 @@ If you haven't registered to Discord, please do it [here](https://discord.com/re
 After you have your Discord account you should create your developer app.
 Go to your [developer profile](https://discord.com/developers/applications) and set up a new application.
 
-For a detailed guide read ["Set up your Discord Application"](/learn/appendix/set-up-your-discord-application).
-
 ### Set up your Cloudflare account
 
 Go to [Cloudflare](https://dash.cloudflare.com/sign-up) and sign up on their site. Once you've signed up, you'll find a lot of
 services provided by Cloudflare but for this starting guide, we'll just focus on Cloudflare Workers.
-
-For a detailed guide read ["Set up your Cloudflare Account"](/learn/appendix/set-up-your-cloudflare-account).
 
 ### Get started with Wrangler
 
 The last requirement is getting started with `@cloudflare/wrangler2`.
 This command line tool will help you to easily deploy your bot on Cloudflare.
 The official documentation can be accessed in [here](https://developers.cloudflare.com/workers/wrangler/get-started/).
+
+> **NOTE**
+>
+> Please set your secrets `BOT_TOKEN`, and `GUILD_ID`. The former can be retrieved from your Discord Developer Account
+> and the latter — A.K.A server id — is optional if you're developing. You shouldn't set it if you're launching your bot to production.
 
 For our detailed guide how to configure wrangler, read ["Hooking up wrangler"](/learn/guides/hooking-up-wrangler).
 
@@ -68,6 +69,8 @@ When you do this, you'll see the bot added to your server.
 
 ### Install the commands
 
+> **NOTE**
+>
 > If you'd like to instantly see the commands on your server, don't forget to set up
 > the `GUILD_ID` environment variable in your deployment.
 

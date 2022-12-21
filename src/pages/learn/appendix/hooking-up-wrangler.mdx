@@ -1,0 +1,64 @@
+---
+title: Hooking up Wrangler
+layout: ../../../layouts/MainLayout.astro
+---
+
+Wrangler is the Cloudflare tool for you to deploy your workers on Cloudflare.
+In this guide, we'll just cover the basics to get your started with your bots, and if you want to get more involved with this tool,
+we recomend that you follow the [Cloudflare Wrangler Official Documentation](https://developers.cloudflare.com/workers/wrangler/).
+
+## Config file
+
+The config file that you'll find in your project is `wrangler.toml` in which you'll need to configure in order to get your bots on Cloudflare.
+
+We assume that you have already installed it in your local machine, and that you can check the wrangler version you've got.
+
+```bash
+❯ wrangler --version
+ ⛅️ wrangler 2.4.0 (update available 2.6.2)
+-----------------------------------------------------
+```
+
+If you started your project with one of our templates, you'll find the file `wrangler.toml` ready to be used.
+The only thing you will need to add is configuration to create your environments, bindings, and so forth.
+
+## Environment variables
+
+Variables that are not meant to be secret can be added in the `wrangler.toml` file like in this example.
+
+```toml
+compatibility_date = "2022-10-20"
+account_id = "590d5e6a4382a813b506fa45ca1609e0"
+main = "src/index.ts"
+
+[build]
+command = "npm install && npm run build"
+
+[env.test]
+name = "a-deployment-name"
+workers_dev = true
+
+[env.test.vars]
+APPLICATION_ID = "your application id"
+PUBLIC_KEY = "your public key"
+```
+
+The variables that are under the scope `env.test.vars` will be used whenever you run:
+
+```bash
+❯ wrangler publish -e test
+```
+
+## Secrets
+
+Other type of variables are meant to be secret such as the `GUILD_ID`, `BOT_TOKEN`, so on and so forth.
+For that you can add those by executing from a terminal the following command:
+
+```bash
+❯ wrangler secret put GUILD_ID -e test
+ ⛅️ wrangler 2.4.0 (update available 2.6.2)
+-----------------------------------------------------
+Enter a secret value:
+```
+
+You will need to enter the secret value. This is recommended to do before publishing your bot.
