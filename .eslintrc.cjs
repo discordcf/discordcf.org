@@ -27,6 +27,10 @@ module.exports = {
     project: "tsconfig.json",
   },
   rules: {
+    "eol-last": "off",
+    "no-trailing-spaces": "off",
+    "no-multiple-empty-lines": ["error", { max: 2 }],
+    "comma-dangle": ["error", "only-multiline"],
     "multiline-ternary": "off",
     quotes: ["error", "double"],
     "@typescript-eslint/indent": "off",

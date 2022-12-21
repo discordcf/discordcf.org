@@ -14,9 +14,9 @@ const applicationHandler = createApplicationCommandHandler(application, env, con
 In your `index.{js,ts}` file you will initilize your bot by creating the application handler.
 
 ```typescript
-import { createApplicationCommandHandler, Permissions } from '@discordcf/framework';
-import yourCommmand from './cmd/your-command';
-import yourComponent from './components/your-component';
+import { createApplicationCommandHandler, Permissions } from "@discordcf/framework";
+import yourCommmand from "./cmd/your-command";
+import yourComponent from "./components/your-component";
 
 let applicationCommandHandler: (request: Request) => Promise<Response>;
 
@@ -39,10 +39,7 @@ export default {
           commands: [yourCommand],
           components: [yourComponent],
           guildId: env.GUILD_ID,
-          permissions: new Permissions([
-            'AddReactions',
-            'SendMessages',
-          ]),
+          permissions: new Permissions(["AddReactions", "SendMessages"]),
         },
         env,
         context,

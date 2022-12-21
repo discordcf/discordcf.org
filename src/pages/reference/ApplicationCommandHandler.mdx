@@ -14,11 +14,11 @@ type ApplicationCommandHandler = (request: Request, ...extra: any) => Promise<an
 Used when you call the function `createApplicationCommandHandler`.
 
 ```typescript
-const handler: ApplicationCommandHandler = applicationCommandHandler = createApplicationCommandHandler(
-    application,
-    env,
-    context,
-);
+const handler: ApplicationCommandHandler = (applicationCommandHandler = createApplicationCommandHandler(
+  application,
+  env,
+  context,
+));
 ```
 
 ## Reference

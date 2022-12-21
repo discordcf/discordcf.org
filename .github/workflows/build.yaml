@@ -1,4 +1,4 @@
-name: Build discordcf
+name: Build
 
 on: push
 
@@ -7,11 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: NPM Install
-        run: npm install
+        uses: actions/checkout@v3
 
-      - name: Build discordcf
+      - name: Yarn Install
+        run: yarn install
+
+      - name: Build site
         id: build
-        run: npm run build
+        run: yarn run build

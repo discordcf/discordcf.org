@@ -2,8 +2,10 @@ export const getLanguage = (url: string): string => {
   return (url.match(/(?<=\/)[a-z]{2}(?=\/)/g) ?? ["en"])[0];
 };
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 export const getCurrentSection = (path: string): string => path.match(/(?<=\/)[^/]*/g)![0];
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 export const getCurrentSlug = (path: string): string => path.match(/(?<=(learn|reference)\/).*[^/]/g)![0];
 
 export const flattenTopics = (topics: any): any => {
@@ -23,7 +25,7 @@ export function getPreviousNext(path: string, topics: any): any {
   const flattenedTopics = flattenTopics(topics);
   const currentSlug = getCurrentSlug(path);
 
-  const currentTopicIndex = flattenedTopics.findIndex((t) => t.slug === currentSlug);
+  const currentTopicIndex: number = flattenedTopics.findIndex((t: any) => t.slug === currentSlug);
   const previous =
     currentTopicIndex > 0 &&
     flattenedTopics[currentTopicIndex - 1].section === flattenedTopics[currentTopicIndex].section

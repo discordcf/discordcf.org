@@ -10,12 +10,12 @@ layout: ../../layouts/MainLayout.astro
 Whenever you define your handler signature, you will need to define a parameter `ctx` of type `Context`.
 
 ```typescript
-import { Command, InteractionResponseType, Context, APIInteractionResponse } from '@discordcf/framework';
+import { Command, InteractionResponseType, Context, APIInteractionResponse } from "@discordcf/framework";
 
 export const helloCommand: Command = {
   command: {
-    name: 'hello',
-    description: 'A simple hello message',
+    name: "hello",
+    description: "A simple hello message",
   },
   handler: async (ctx: Context): Promise<APIInteractionResponse> => {
     const userId = ctx.interaction.structure.member?.user.id;
@@ -24,7 +24,7 @@ export const helloCommand: Command = {
       data: {
         content: `Hello, <@${userId}>`,
         allowed_mentions: {
-          users: [userId || ''],
+          users: [userId || ""],
         },
       },
     };
@@ -37,9 +37,7 @@ export default helloCommand;
 ## Reference
 
 <div class="m-0 flex justify-start">
-  <span class="rounded-md bg-slate-300 py-2 px-4 font-source-code-pro dark:bg-[#ffffff16]">
-    Context
-  </span>
+  <span class="rounded-md bg-slate-300 py-2 px-4 font-source-code-pro dark:bg-[#ffffff16]">Context</span>
 </div>
 
 ### Methods

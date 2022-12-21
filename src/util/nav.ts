@@ -30,9 +30,7 @@ export const topics = [
   {
     header: "Appendix",
     section: "learn",
-    items: [
-      { text: "Hooking up Wrangler", slug: "appendix/hooking-up-wrangler" },
-    ],
+    items: [{ text: "Hooking up Wrangler", slug: "appendix/hooking-up-wrangler" }],
   },
   {
     header: "Application API",
@@ -49,9 +47,7 @@ export const topics = [
   {
     header: "Interaction API",
     section: "reference",
-    items: [
-      { text: "Interaction", slug: "Interaction" },
-    ],
+    items: [{ text: "Interaction", slug: "Interaction" }],
   },
   {
     header: "Context API",

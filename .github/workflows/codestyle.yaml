@@ -8,10 +8,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
+
       - name: Yarn Install
         run: yarn install
-      
+
       - name: Run lint and formatter script
         id: lint-formatter
         run: yarn run lint
